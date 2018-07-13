@@ -1,2 +1,4 @@
 <!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<view class='top'>
+   <image src='/images/top.jpg'></image> 
+</view>
