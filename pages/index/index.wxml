@@ -1,4 +1,48 @@
 <!--pages/index/index.wxml-->
 <view class='top'>
-   <image src='/images/top.jpg'></image> 
+  <image src='/images/top.jpg'></image>
+  <view class='user'>
+    <view class='username' bindtap='userPage'>{{userName ? userName:'游客'}}</view>
+    <view class='touxiang'>
+    <image src="{{userPicture ? userPicture:'/images/person2.png'}}" bindtap='userPage'></image>
+    </view>
+  </view>
+  <view class='search'>
+    <view class='index'>
+      <image src='/images/index.png'>
+      </image>
+      <text>长沙</text>
+    </view>
+    <view class='input'>
+      <input placeholder="请输入你想要查询的招标信息"></input>
+    </view>
+  </view>
+  <view class='type'>
+    <view class='images'>
+      <image src='/images/icon1.png'></image>
+      <text>货物类</text>
+    </view>
+    <view class='images'>
+      <image src='/images/icon2.png'></image>
+      <text>工程类</text>
+    </view>
+    <view class='images'>
+      <image src='/images/icon3.png'></image>
+      <text>服务类</text>
+    </view>
+    <view class='images'>
+      <image src='/images/icon4.png'></image>
+      <text>所有类</text>
+    </view>
+  </view>
+</view>
+<view class='content'>
+  <view class='head'>为你推荐</view>
+  <view class='box'>
+    <text class='title'>安徽滁州技师学院教学诊改平台采购项目（二次）招标公告</text>
+    <view class='text'>
+      <text>2018.07.16 10:45:00 | 安徽</text>
+      <image src='/images/shoucang.png'></image>
+    </view>
+  </view>
 </view>
