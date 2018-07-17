@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/collection/collection",
-    "pages/personal/personal",
-    "pages/index/index"
+   "pages/index/index",
+    "pages/personal/personal"
+    
   ],
   "window": {
     "navigationBarBackgroundColor": "#004bab",
