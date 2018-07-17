@@ -1,1 +1,26 @@
-<text></text>
+<view class="top">
+<image src="/images/back.jpg"></image>
+<view class="touxiang">
+<image src="/images/tx3.jpg"></image>
+</view>
+<view class="box1">
+<text class="name">MrGragonG</text>
+<view class="box2">
+<a href="#">
+<image src="/images/bianji.png"></image>
+</a>
+<text>关键词填写</text>
+</view>
+</view>
+</view>
+<view class="common">
+<text class="title">常用功能</text>
+<view class="yuan1">
+<image src="/images/collection.png"></image>
+<text>我的收藏</text>
+</view>
+<view class="yuan2">
+<image src="/images/history.png"></image>
+<text>历史记录</text>
+</view>
+</view>
