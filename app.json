@@ -1,6 +1,9 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",    
+    "pages/search/search",
+    "pages/place/place",
+    "pages/personal/personal"
   ],
   "window": {
     "navigationBarBackgroundColor": "#004bab",
@@ -21,7 +24,7 @@
         "selectedIconPath": "images/rank1.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/personal/personal",
         "text": "个人中心",
         "iconPath": "images/person.png",
         "selectedIconPath": "images/person1.png"

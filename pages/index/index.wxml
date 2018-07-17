@@ -4,18 +4,20 @@
   <view class='user'>
     <view class='username' bindtap='userPage'>{{userName ? userName:'游客'}}</view>
     <view class='touxiang'>
-    <image src="{{userPicture ? userPicture:'/images/person2.png'}}" bindtap='userPage'></image>
+      <image src="{{userPicture ? userPicture:'/images/person2.png'}}" bindtap='userPage'></image>
     </view>
   </view>
   <view class='search'>
-    <view class='index'>
+    <view class='index' bindtap='place'>
       <image src='/images/index.png'>
       </image>
       <text>长沙</text>
     </view>
+    <form bindsubmit="searchSubmit" action="">
     <view class='input'>
-      <input placeholder="请输入你想要查询的招标信息"></input>
+      <input placeholder="请输入你想要查询的招标信息" bindconfirm="searchSubmit"></input>
     </view>
+    </form>
   </view>
   <view class='type'>
     <view class='images'>
