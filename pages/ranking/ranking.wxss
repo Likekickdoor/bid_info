@@ -1,0 +1,171 @@
+.all{
+  width: 100%;
+  height: 667px;
+}
+.top{
+  width: 100%;
+  height: 100rpx;
+  border-bottom: 1px solid gainsboro;
+}
+.top text{
+  color: #004BAB;
+  font-size: 35rpx;
+}
+.title1{
+  float: left;
+  margin-left: 55rpx;
+  margin-top: 29rpx;
+}
+.title2, .title3{
+  float: left;
+  margin-left: 140rpx;
+  margin-top: 29rpx;
+}
+.content{
+  width: 100%;
+  height: 100%;
+}
+.k1{
+  width: 100%;
+  height: 100rpx;
+  border-bottom: 1px solid gainsboro;
+}
+.k1 image{
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+  margin-left: 48rpx;
+  margin-top: 19rpx
+}
+.k1 .name{
+  font-size: 32rpx;
+  float: left;
+  margin-left: 50rpx;
+  margin-top: 30rpx;
+}
+.k1 .shuju{
+  font-size: 32rpx;
+  float: left;
+   margin-left: 50rpx;
+  margin-top: 30rpx;
+}
+.k2{
+  width: 100%;
+  height: 100rpx;
+  border-bottom: 1px solid gainsboro;
+}
+.k2 image{
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+  margin-left: 48rpx;
+  margin-top: 19rpx
+}
+.k2 .name{
+   font-size: 32rpx;
+  float: left;
+  margin-left: 50rpx;
+  margin-top: 30rpx;
+}
+.k2 .shuju{
+  font-size: 32rpx;
+  float: left;
+   margin-left: 50rpx;
+  margin-top: 30rpx;
+}
+.k3{
+ width: 100%;
+  height: 100rpx;
+  border-bottom: 1px solid gainsboro;
+}
+.k3 image{
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+  margin-left: 48rpx;
+  margin-top: 19rpx
+}
+.k3 .name{
+  font-size: 32rpx;
+  float: left;
+  margin-left: 50rpx;
+  margin-top: 30rpx;
+}
+.k3 .shuju{
+ font-size: 32rpx;
+  float: left;
+   margin-left: 50rpx;
+  margin-top: 30rpx;
+}
+.k4{
+ width: 100%;
+  height: 100rpx;
+  border-bottom: 1px solid gainsboro;
+}
+.k4 .number{
+  font-size: 40rpx;
+  color: gray;
+  float: left;
+  margin-left: 60rpx;
+  margin-top: 27rpx
+}
+.k4 .name{
+  font-size: 32rpx;
+  float: left;
+  margin-left: 76rpx;
+  margin-top: 30rpx;
+}
+.k4 .shuju{
+  font-size: 32rpx;
+  float: left;
+   margin-left: 50rpx;
+  margin-top: 30rpx;
+}
+.k5{
+ width: 100%;
+  height: 100rpx;
+  border-bottom: 1px solid gainsboro;
+}
+.k5 .number{
+  font-size: 40rpx;
+  color: gray;
+  float: left;
+  margin-left: 60rpx;
+  margin-top: 27rpx
+}
+.k5 .name{
+  font-size: 32rpx;
+  float: left;
+  margin-left: 76rpx;
+  margin-top: 30rpx;
+}
+.k5 .shuju{
+  font-size: 32rpx;
+  float: left;
+   margin-left: 50rpx;
+  margin-top: 30rpx;
+}
+.k6{
+ width: 100%;
+  height: 100rpx;
+  border-bottom: 1px solid gainsboro;
+}
+.k6 .number{
+  font-size: 40rpx;
+  color: gray;
+  float: left;
+  margin-left: 60rpx;
+  margin-top: 27rpx
+}
+.k6 .name{
+  font-size: 32rpx;
+  float: left;
+  margin-left: 76rpx;
+  margin-top: 30rpx;
+}
+.k6 .shuju{
+  font-size: 32rpx;
+  float: left;
+   margin-left: 50rpx;
+  margin-top: 30rpx;
+}

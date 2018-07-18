@@ -1,8 +1,10 @@
 {
   "pages": [
-   "pages/index/index",
-    "pages/personal/personal"
-    
+    "pages/index/index",
+    "pages/ranking/ranking",
+    "pages/personal/personal",
+    "pages/history/history",
+    "pages/collection/collection"
   ],
   "window": {
     "navigationBarBackgroundColor": "#004bab",
@@ -17,7 +19,7 @@
         "selectedIconPath": "images/home1.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/ranking/ranking",
         "text": "排名",
         "iconPath": "images/rank.png",
         "selectedIconPath": "images/rank1.png"

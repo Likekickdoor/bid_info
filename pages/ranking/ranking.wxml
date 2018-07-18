@@ -1,0 +1,39 @@
+<view class="all">
+<view class="top">
+<text class="title1">排名</text>
+<text class="title2">代理公司名称</text>
+<text class="title3">数据</text>
+</view>
+<view class="content">
+<view class="k1">
+<image src='/images/1.png'></image>
+<text class="name">公司名称公司名称名称名称</text>
+<text class="shuju">2777333</text>
+</view>
+<view class="k2">
+<image src='/images/2.png'></image>
+<text class="name">公司名称公司名称名称名称</text>
+<text class="shuju">2777333</text>
+</view>
+<view class="k3">
+<image src='/images/3.png'></image>
+<text class="name">公司名称公司名称名称名称</text>
+<text class="shuju">2777333</text>
+</view>
+<view class="k4">
+<text class="number">4</text>
+<text class="name">公司名称公司名称名称名称</text>
+<text class="shuju">2777333</text>
+</view>
+<view class="k5">
+<text class="number">5</text>
+<text class="name">公司名称公司名称名称名称</text>
+<text class="shuju">2777333</text>
+</view>
+<view class="k6">
+<text class="number">6</text>
+<text class="name">公司名称公司名称名称名称</text>
+<text class="shuju">2777333</text>
+</view>
+</view>
+</view>
