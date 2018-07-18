@@ -1,10 +1,15 @@
-// pages/index/index.js
+// pages/search/search.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    array: ['所有', '货物类', '工程类', '服务类'],
+    array1:['所有','按最新时间'],
+    index:0,
+    region: ['全部', '全部', '全部'],
+    customItem: '全部'
   },
 
   /**
@@ -62,14 +67,22 @@ Page({
   onShareAppMessage: function () {
   
   },
-  place:function(){
-    wx.redirectTo({
-      url: '../place/place',
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e)
+    this.setData({
+      index: e.detail.value
     })
   },
-  searchSubmit:function(){
-    wx.navigateTo({
-      url: '../search/search',
+  bindPickerChange1: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
+  bindRegionChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
     })
   }
 })

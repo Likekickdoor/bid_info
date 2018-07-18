@@ -5,6 +5,7 @@ page {
   height: 100%;
   font-size: 30rpx;
   background: #ebe9ea;
+
 }
 
 .top {
@@ -97,6 +98,8 @@ page {
   border-radius: 5px;
   padding-left: 20rpx;
   color: #000;
+  font-size: 28rpx;
+  letter-spacing: 2rpx;
 }
 
 .top .type {
@@ -138,7 +141,7 @@ page {
   height: 60rpx;
   line-height: 60rpx;
   padding: 20rpx;
-  font-size: 40rpx;
+  font-size: 38rpx;
   border-bottom: 1px #eee solid;
 }
 .content .box{
@@ -149,7 +152,7 @@ page {
 }
 .content .box .title{
   color: #000;
-  font-size: 34rpx;  
+  font-size: 32rpx;  
 }
 .content .box .text{
   height: 60rpx;

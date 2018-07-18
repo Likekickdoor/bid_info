@@ -1,0 +1,45 @@
+<!--pages/search/search.wxml-->
+<view class='search' style='  background: url("/images/top.jpg");'>
+  <input placeholder-class="phcolor" placeholder="请输入你想要查询的招标信息"></input>
+</view>
+<view class="nav">
+  <view class="nav-son " bindtap="listqy" data-nav="1">
+    <view class="content">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          类型
+        </view>
+      </picker>
+    </view>
+    <view class="icon"></view>
+  </view>
+  <view class="nav-son" bindtap="list" data-nav="2">
+    <view class="content">
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="picker">
+          地点
+        </view>
+      </picker>
+    </view>
+    <view class="icon"></view>
+  </view>
+  <view class="nav-son " bindtap="listpx" data-nav="3">
+    <view class="content">
+      <picker bindchange="bindPickerChange1" value="{{index}}" range="{{array1}}">
+        <view class="picker">
+          排序
+        </view>
+      </picker>
+    </view>
+    <view class="icon"></view>
+  </view>
+</view>
+<view class='content1'>
+  <view class='box'>
+    <text class='title'>安徽滁州技师学院教学诊改平台采购项目（二次）招标公告</text>
+    <view class='text'>
+      <text>2018.07.16 10:45:00 | 安徽</text>
+      <image src='/images/shoucang.png'></image>
+    </view>
+  </view>
+</view>
