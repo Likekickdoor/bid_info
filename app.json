@@ -1,18 +1,13 @@
 {
   "pages": [
-<<<<<<< HEAD
     "pages/index/index",
     "pages/ranking/ranking",
-    "pages/personal/personal",
     "pages/history/history",
-    "pages/collection/collection"
-=======
-    "pages/index/index",    
+    "pages/collection/collection",   
     "pages/detail/detail",
     "pages/search/search",
     "pages/place/place",
     "pages/personal/personal"
->>>>>>> 137123d74146f967770bb106ed1aea5b3a140076
   ],
   "window": {
     "navigationBarBackgroundColor": "#004bab",

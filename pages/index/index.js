@@ -12,7 +12,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that=this;
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    var that = this;
     // 新建百度地图对象 
     wx.setStorageSync('tuijian', 0);
     var BMap = new bmap.BMapWX({
@@ -36,20 +50,6 @@ Page({
       fail: fail,
       success: success
     });
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
   },
 
   /**

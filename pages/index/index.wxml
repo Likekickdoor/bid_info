@@ -13,10 +13,8 @@
       </image>
       <text>{{city}}</text>
     </view>
-    <form bindsubmit="searchSubmit" action="">
-    <view class='input'>
+    <form bindsubmit="searchSubmit" action="" class='input'>
       <input placeholder="请输入你想要查询的招标信息" bindconfirm="searchSubmit"></input>
-    </view>
     </form>
   </view>
   <view class='type'>
