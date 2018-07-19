@@ -1,5 +1,5 @@
 <!--pages/search/search.wxml-->
-<view class='search' style='  background: url("/images/top.jpg");'>
+<view class='search'>
   <input placeholder-class="phcolor" placeholder="请输入你想要查询的招标信息"></input>
 </view>
 <view class="nav">

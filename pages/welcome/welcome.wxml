@@ -1,0 +1,23 @@
+<!--pages/welcome/welcome.wxml-->
+<view class='container'>
+  <view class='top'>填写关键词</view>
+  <view class='note'>填写关键词，开启智能推荐模式。每次进入程序都会为你推荐，可在个人中心修改。</view>
+  <view class='mainBox'>
+    <view class='key'>
+      <text>1</text>
+      <input placeholder='请输入关键词'></input>
+    </view>
+    <view class='key'>
+      <text>2</text>
+      <input placeholder='请输入关键词'></input>
+    </view>
+    <view class='key'>
+      <text>3</text>
+      <input placeholder='请输入关键词'></input>
+    </view>
+  </view>
+  <view class='btn'>
+  <view class='finish'>完成</view>
+  <view class='skip'>跳过</view>
+  </view>
+</view>

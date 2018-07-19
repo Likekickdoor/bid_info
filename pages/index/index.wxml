@@ -11,7 +11,7 @@
     <view class='index' bindtap='place'>
       <image src='/images/index.png'>
       </image>
-      <text>长沙</text>
+      <text>{{city}}</text>
     </view>
     <form bindsubmit="searchSubmit" action="">
     <view class='input'>
