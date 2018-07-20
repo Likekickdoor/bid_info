@@ -134,11 +134,10 @@ page {
   color: #888;
 }
 .content{
-  margin-top: 20rpx;
+  margin-top: 30rpx;
   background: #fff;
   display: flex;
   flex-direction: column;
-  height: 300rpx;
 }
 .content .head{
   height: 60rpx;
@@ -156,8 +155,7 @@ page {
 .content .box .title{
   color: #000;
   font-size: 32rpx;  
-  height: 60rpx;
-  line-height: 30rpx;
+  line-height: 60rpx;
 }
 .content .box .text{
   height: 60rpx;

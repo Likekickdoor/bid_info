@@ -1,23 +1,21 @@
 <!--pages/welcome/welcome.wxml-->
-<view class='container'>
-  <view class='top'>填写关键词</view>
-  <view class='note'>填写关键词，开启智能推荐模式。每次进入程序都会为你推荐，可在个人中心修改。</view>
-  <view class='mainBox'>
-    <view class='key'>
-      <text>1</text>
-      <input placeholder='请输入关键词'></input>
-    </view>
-    <view class='key'>
-      <text>2</text>
-      <input placeholder='请输入关键词'></input>
-    </view>
-    <view class='key'>
-      <text>3</text>
-      <input placeholder='请输入关键词'></input>
-    </view>
+<view class='top'>
+  <view class='logo'>
+     <image src='/images/logo.png'></image> 
   </view>
-  <view class='btn'>
-  <view class='finish'>完成</view>
-  <view class='skip'>跳过</view>
+  <view class='intro'>
+    <text class='intro_title'>招标信息站</text>
+    <text class='intro_text'>招标信息站-为投标人提供最全信息</text>
+  </view>
+</view>
+<view class='bottom'>
+  <view class='detail'>
+    <text>该程序将获得以下授权</text>
+    <text>获得您的公开信息（头像、昵称等）</text>
+    <text>(授权后可填写关键词快速为你推荐）</text>
+  </view>
+  <view class='button'>
+    <button class='btn_home' bindtap='into_home'>进入首页</button>
+    <button class='btn_get' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">立即授权</button>
   </view>
 </view>

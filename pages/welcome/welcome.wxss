@@ -1,69 +1,64 @@
 /* pages/welcome/welcome.wxss */
+/* pages/welcome/welcome.wxss */
 page{
   width: 100%;
   height: 100%;
-}
-.container{
-  width: 100%;
   display: flex;
   flex-direction: column;
+  font-size: 30rpx;
+  color: #888;
 }
-.container .top{
-  width: 100%;
-  height: 100rpx;
-  line-height: 100rpx;
-  padding-left: 30rpx;
-  border-bottom: 1px #888 solid;
-  font-size: 38rpx;
+.top{
+  width: 90%;
+  height: 35%;
+  margin: 0 auto;
+  padding-top:25%;
+  border-bottom: 1px solid #eee;
 }
-.container .note{
-  background: #FCFBC0;
-  font-size: 26rpx;
-  color: #EB5605;
-  padding:10rpx 30rpx;
-}
-.container .mainBox{
-  margin-top: 65rpx;
-  padding-left: 30rpx;
-  display: flex;
-  flex-direction: column;
-}
-.container .mainBox .key{
-  display: flex;
-  flex-direction: row;
-  height: 150rpx;
-  line-height: 150rpx;
-}
-.container .mainBox .key text{
-  width: 54rpx;
-}
-.container .mainBox .key input{
-  width: 590rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  border: 1rpx #CDCEC8 solid;
-  margin-top: 36rpx;
-  font-size: 32rpx;
-  padding-left: 20rpx;
-  border-radius:3px;
-}
-.container .btn{
-  margin-top: 80rpx;
-  display: flex;
-  flex-direction: row;
-  padding-left: 30rpx;
-}
-.container .btn .finish,.skip{
-  width: 220rpx;
-  height: 80rpx;
-  line-height: 80rpx;
+.top .logo{
+  height: 186rpx;
   text-align: center;
-  background: rgba(0,75,171, 0.8);
-  color: #fff;
-  border-radius: 5px;
-  margin-left: 54rpx;
 }
-.skip{
-  margin-left: 164rpx;
-  background: #B9B3B6;  
+.top .logo image{
+  width: 150rpx;
+  height: 150rpx;
+}
+.top .intro {
+ display: flex;
+ flex-direction: column;
+ text-align: center;
+}
+.top .intro .intro_title{
+  font-size: 42rpx;
+  margin-bottom: 20rpx;
+  color: #000;
+}
+.bottom{
+  padding-top:5%;
+  width: 90%;
+  margin: 0 auto;
+}
+.bottom .detail{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 13%;
+}
+.bottom .detail text{
+  height: 50rpx;
+}
+.bottom .button{
+  display: flex;
+  flex-direction: row;
+}
+.bottom .button button{
+  width: 45%;
+  border-radius: 1px;
+}
+.bottom .button .btn_home{
+  background: #B9B3B6;
+  color: #514A4E;
+}
+.bottom .button .btn_get{
+  background: #004bab;
+  color: #fff;
 }
