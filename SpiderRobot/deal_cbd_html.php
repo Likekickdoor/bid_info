@@ -5,14 +5,14 @@ set_time_limit(0);
 require_once ('./collect.class.php');
 require_once ('./phpQuery/phpQuery.php');
 require_once ('./industrieArr.php');
-var_dump(page_Num('10','3'));exit();
-$pdo= new PDO('mysql:host=localhost;dbname=bidinfo','root','',[PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8']);
+// var_dump(page_Num('10','3'));exit();
+$pdo= new PDO('mysql:host=localhost;dbname=bidinfo','root','Root123456',[PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8']);
 try{
 foreach ($industries as $indCode => $industrie) {//各个小行业循环indCode是行业编号，industrise是大行业类型
-	$pageNum=page_Num($indCode,'3');//总爬取页数
-	printf("this hangye:%s have page %d\n\r",$indCode,$pageNum);
+	$pageNum=page_Num($indCode,'1');//总爬取页数,第二参数是行业
+	printf("this hangye:%s have page %d\n",$indCode,$pageNum);
 	if($pageNum==0){
-		printf("It isn't infomartion of industrie which %s\n\r",$indCode);
+		printf("It isn't infomartion of industrie which %s\n",$indCode);
 		sleep(3);
 		continue;
 	}	
@@ -23,7 +23,7 @@ foreach ($industries as $indCode => $industrie) {//各个小行业循环indCode�
 		$one->_Setcookie('JSESSIONID=657D40BC3807127A4B1CA97C19C6FAF4;');
 		$postArr=[
 		'fullText'=>'',
-		'pubDate'=>'3',
+		'pubDate'=>'1',
 		'infoClassCodes'=>'0105',
 		'normIndustry'=>(string)$indCode,//行业类型
 		'zoneCode'=>'',
@@ -35,7 +35,7 @@ foreach ($industries as $indCode => $industrie) {//各个小行业循环indCode�
 		$one->_Setpost($postArr);
 		$html=$one->curl_one_file();
 		sleep(3);
-		printf("OpenPage httpCode is %d\n\r",$one->headCode);
+		printf("OpenPage httpCode is %d\n",$one->headCode);
 		$one = null;
 		//将获取的HTML进行加工取数据
 		phpQuery::newDocumentHTML($html,'utf-8');
@@ -61,6 +61,9 @@ foreach ($industries as $indCode => $industrie) {//各个小行业循环indCode�
   	}
   	// exit('<br/>一个行业循环完<br/>');	
 }
+	printf("\nAll industries had vivisted\n");
+	require_once('deal_cbd_detail.php');
+	printf("\nAll detail information collected\n");
 	$pdo = null;
 }catch(Exception $e){
 	echo $e->getMessage();
@@ -97,14 +100,14 @@ function split_Time($str){
 /**
 *确定一共需要循环次数,该行业有多少页数据
 */
-function page_Num($indCode,$timelong='3'){
+function page_Num($indCode,$timelong='1'){
 	$onea = new OpenUrlClass();
 	$ScanfUrl='http://www.chinabidding.com/search/proj.htm';
 	$onea->_Seturl($ScanfUrl);
 	$onea->_Setcookie('JSESSIONID=657D40BC3807127A4B1CA97C19C6FAF4;');
 	$postArr=[
 	'fullText'=>'',
-	'pubDate'=>$timelong,//3为近一周
+	'pubDate'=>$timelong,//1为今天
 	'infoClassCodes'=>'0105',
 	'normIndustry'=>(string)$indCode,//行业类型
 	'zoneCode'=>'',

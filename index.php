@@ -11,11 +11,12 @@ $container = $app->getContainer();//这是一个PDO容器'db'用来装资源句�
 $container['db'] = function ($config) {
     $db = $config['settings']['db'];
     $pdo = new PDO("mysql:host=" . $db['host'] . ";dbname=" . $db['dbname'],
-        $db['user'], $db['pass'],[PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8']);
+    	$db['user'], $db['pass'],[PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8']);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $pdo->getAttribute(PDO::ATTR_SERVER_INFO);
     return $pdo;
 };
-$app->get('/',"\UserController:onlogin");//路由,使用控制器类中的方法
+$app->post('/onlogin',"\UserController:onlogin");//路由,使用控制器类中的方法
 $app->run();//启动监听函数
 ?>

@@ -1,10 +1,11 @@
 <?php
-header('content_type;text/html;charset=utf-8');
-date_default_timezone_set('Asia/Shanghai');
-set_time_limit(0);
-require_once('./phpQuery/phpQuery.php');
-require_once ('./collect.class.php');
-$pdo = new PDO('mysql:host=localhost;dbname=bidinfo','root','',[PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8']);
+// header('content_type;text/html;charset=utf-8');
+// date_default_timezone_set('Asia/Shanghai');
+// set_time_limit(0);
+// require_once('./phpQuery/phpQuery.php');
+// require_once ('./collect.class.php');
+// $pdo = new PDO('mysql:host=localhost;dbname=bidinfo','root','',[PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8']);
+
 $Rows= $pdo->query("SELECT `bid`,`org_href` FROM `bidinfo` WHERE status=2 AND fromsite=2",PDO::FETCH_ASSOC);
 $one = new OpenUrlClass();
 $one->_Setcookie('JSESSIONID=657D40BC3807127A4B1CA97C19C6FAF4;');
@@ -21,7 +22,7 @@ foreach ($Rows as $Row) {//Rows二维结果集,其元组属性为bid和org_href
 	//将此bid对应bidinfo表的status更改为1
 	update_bidinfo_status($pdo,$Row['bid']);	
 	}
-	printf("Insert into notice:%d,This is the No.%d\r\n",(int)$rs,(int)$Row['bid']);
+	printf("Insert into notice:%d,This is the No.%d\n",(int)$rs,(int)$Row['bid']);
 }
 $one=null;
 $pdo=null;
