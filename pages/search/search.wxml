@@ -5,7 +5,7 @@
 <view class="nav">
   <view class="nav-son " bindtap="listqy" data-nav="1">
     <view class="content">
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <picker bindchange="bindPickerChange" value="{{index1}}" range="{{array}}">
         <view class="picker">
           类型
         </view>
@@ -25,7 +25,7 @@
   </view>
   <view class="nav-son " bindtap="listpx" data-nav="3">
     <view class="content">
-      <picker bindchange="bindPickerChange1" value="{{index}}" range="{{array1}}">
+      <picker bindchange="bindPickerChange1" value="{{index2}}" range="{{array1}}">
         <view class="picker">
           排序
         </view>

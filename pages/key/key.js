@@ -1,26 +1,31 @@
 // pages/welcome/welcome.js
-function login_fun(){
+function login_fun(that){
+  console.log(wx.getStorageSync('userpicture'));
+  console.log(that.data.key1);
+  console.log(that.data.key2);
+  console.log(that.data.key3)
   wx.login({
     success: function (res) {
-      // console.log(res.code)
+      console.log(res.code)
       if (res.code) {
         //发起网络请求
         wx.request({
           url: 'https://m.ctrltab.xyz/bid_info/onlogin',
           data: {
             code: res.code,
+            UserName:wx.getStorageSync('userName'),
             face: wx.getStorageSync('userpicture'),
-            u_place: this.data. key1,
-            u_ind_type: this.data.key2,
-            timelong: this.data.key3
+            u_place: that.data.key1,
+            u_ind_type: that.data.key2,
+            u_agent: that.data.key3
           },
           header: {
-            "content-type": "application/x-www-form-urlencoded" // 默认值
+            "content-type": "application/json" // 默认值
           },
           method: "POST",
           success: function (res) {
             console.log(res.data)
-            wx.setStorageSync('id', res.data.id);
+            wx.setStorageSync('id', res.data.sessionId);
           },
           fail: function () {
             console.log("发送失败");
@@ -114,14 +119,16 @@ Page({
     })
   },
   finish:function(){
-    login_fun();
-    wx.redirectTo({
+    var that=this;
+    login_fun(that);
+    wx.switchTab({
       url: '../index/index',
     })
   },
   skip: function () {
-    login_fun();
-    wx.redirectTo({
+    var that = this;    
+    login_fun(that);
+    wx.switchTab({
       url: '../index/index',
     })
   }
