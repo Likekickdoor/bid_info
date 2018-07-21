@@ -93,25 +93,6 @@ class UserController {
    }
 
    /**
-	*@param 用户登录
-	*@return 返回数组
-   	*/
-   public function aaaaaa (Request $request, Response $response){
-		try{
-			
-		}catch(Exception $e){
-			$response = $response->withStatus($e->getCode())->withHeader('Content-type', 'application/json');
-			$response->getBody()->write(json_encode(
-				[
-		            'errorCode' => $e->getCode(),
-		            'error' => $e->getMessage()
-		        ]
-			));
-			return $response;
-		}
-   }
-
-   /**
 	*@param 去微信申请到用户的识别码并存库
 	*@return 返回数组
    	*/
