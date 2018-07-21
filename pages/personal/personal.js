@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 Page({
   navigateSkip: function () {
@@ -20,3 +21,20 @@ Page({
   },
   
 })
+=======
+// pages/index/index.js
+Page({
+
+      navigateBack: function() {
+        wx.navigateTo({
+          title: "goback",
+          url: '../collection/collection'
+        })
+      },
+      Back: function() {
+        wx.navigateTo({
+          title: "goback",
+          url: '../history/history'
+        })
+      }})
+>>>>>>> 413712723a4797bcd10345ad0e80d5e4e1efd294

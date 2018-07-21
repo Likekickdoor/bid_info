@@ -1,4 +1,5 @@
 // pages/index/index.js
+var bmap = require('../../libs/bmap-wx.js');
 Page({
 
   /**
@@ -11,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
@@ -25,7 +26,30 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this;
+    // 新建百度地图对象 
+    wx.setStorageSync('tuijian', 0);
+    var BMap = new bmap.BMapWX({
+      ak: 'XIAIar2Lv2tbX1fPYul0BhGrrVGnDHmf'
+    });
+    var fail = function (data) {
+      console.log(data)
+    };
+    var success = function (data) {
+      console.log(data);
+      wx.setStorageSync('location_place', data.originalData.result.addressComponent.city);
+      that.setData({
+        city: wx.getStorageSync('location_place')
+      });
+    }
+    that.setData({
+      city: wx.getStorageSync('location_place')
+    });
+    // 发起regeocoding检索请求 
+    BMap.regeocoding({
+      fail: fail,
+      success: success
+    });
   },
 
   /**

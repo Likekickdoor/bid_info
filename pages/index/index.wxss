@@ -56,6 +56,7 @@ page {
 .top .search {
   position: absolute;
   width: 100%;
+  height: 100rpx;
   display: flex;
   flex-direction: row;
   top: 150rpx;
@@ -67,13 +68,14 @@ page {
   position: relative;
   display: flex;
   flex-direction: row;
-  width: 25%;
+  width: 27%;
+  height: 100%;  
   left: 20rpx;
 }
 
 .top .search .index image {
   position: relative;
-  width: 60rpx;
+  width: 50rpx;
   height: 64rpx;
   top:6rpx;
 }
@@ -87,14 +89,15 @@ page {
 
 .top .search .input {
   position: relative;
+    height: 100%;  
 }
 
 .top .search .input input {
   position: relative;
   top: 11rpx;
   background: #fff;
-  width: 513rpx;
-  height: 65rpx;
+  width: 484rpx;
+  height:60rpx;
   border-radius: 5px;
   padding-left: 20rpx;
   color: #000;
@@ -131,11 +134,10 @@ page {
   color: #888;
 }
 .content{
-  margin-top: 20rpx;
+  margin-top: 30rpx;
   background: #fff;
   display: flex;
   flex-direction: column;
-  height: 300rpx;
 }
 .content .head{
   height: 60rpx;
@@ -145,7 +147,7 @@ page {
   border-bottom: 1px #eee solid;
 }
 .content .box{
-  padding:20rpx;
+  padding:30rpx 20rpx;
   font-size: 30rpx;
   color: #888;
   border-bottom: 1px #eee solid;
@@ -153,6 +155,7 @@ page {
 .content .box .title{
   color: #000;
   font-size: 32rpx;  
+  line-height: 60rpx;
 }
 .content .box .text{
   height: 60rpx;
