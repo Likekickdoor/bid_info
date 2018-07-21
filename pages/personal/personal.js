@@ -1,7 +1,11 @@
-<<<<<<< HEAD
-// pages/index/index.js
-Page({
 
+Page({
+  navigateSkip: function () {
+    wx.navigateTo({
+      title: "goback",
+      url: '../collection/collection'
+    })
+  },
   navigateBack: function () {
     wx.navigateTo({
       title: "goback",
@@ -13,9 +17,6 @@ Page({
       title: "goback",
       url: '../history/history'
     })
-  }
-=======
-Page({
-
->>>>>>> 137123d74146f967770bb106ed1aea5b3a140076
+  },
+  
 })

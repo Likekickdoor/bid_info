@@ -6,10 +6,10 @@
 <view class="box1">
 <text class="name">MrGragonG</text>
 <view class="box2">
-<a href="#">
+<view class="keyword" bindtap="navigateSkip">
 <image src="/images/bianji.png"></image>
-</a>
 <text>关键词填写</text>
+</view>
 </view>
 </view>
 </view>
