@@ -4,7 +4,7 @@
 <image src="/images/tx3.jpg"></image>
 </view>
 <view class="box1">
-<text class="name">MrGragonG</text>
+<text class="name">MrGragon</text>
 <view class="box2">
 <view class="keyword" bindtap="navigateSkip">
 <image src="/images/bianji.png"></image>
