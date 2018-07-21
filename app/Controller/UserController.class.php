@@ -10,6 +10,10 @@ class UserController {
    		$this->pdo=$container['db'];
    }
 
+   /**
+	*@param 用户登录
+	*@return 返回数组
+   	*/
    public function onlogin (Request $request, Response $response){
 		try{
 			//http头部Cookie属性有值为sessionId=xxxxx，说明拥是老用户并且还是在会话中的
@@ -89,6 +93,25 @@ class UserController {
    }
 
    /**
+	*@param 用户登录
+	*@return 返回数组
+   	*/
+   public function aaaaaa (Request $request, Response $response){
+		try{
+			
+		}catch(Exception $e){
+			$response = $response->withStatus($e->getCode())->withHeader('Content-type', 'application/json');
+			$response->getBody()->write(json_encode(
+				[
+		            'errorCode' => $e->getCode(),
+		            'error' => $e->getMessage()
+		        ]
+			));
+			return $response;
+		}
+   }
+
+   /**
 	*@param 去微信申请到用户的识别码并存库
 	*@return 返回数组
    	*/
@@ -107,7 +130,6 @@ class UserController {
 		$res =$stmt->fetch($pdo::FETCH_ASSOC);
 		return $res;
 	}
-
 	private function addUserSql($dateArr){
 		if(empty($dateArr['UserName'])||empty($dateArr['openid'])||empty($dateArr['face'])){
 			throw new Exception("Error!,lost some param", 400);

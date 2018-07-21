@@ -5,6 +5,7 @@ date_default_timezone_set("PRC");
 require_once('./vendor/autoload.php');//composer加载slim框架
 require_once('./app/libs/config/dbconf.php');//数据库配置
 require_once('./app/Controller/UserController.class.php');
+require_once('./app/Controller/SearchController.class.php');
 
 $app = new \Slim\App(["settings" => $config]);//数据库配置数组$config
 $container = $app->getContainer();//这是一个PDO容器'db'用来装资源句柄
