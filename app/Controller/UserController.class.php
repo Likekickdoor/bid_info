@@ -38,12 +38,12 @@ class UserController {
 				//2.微信判断新、老用户实行不同处理逻辑
 				if(!$SqlRes['uid']){//2.1是新用户，添加入库，返回sessionId					
 					$dateArr=[
-					'UserName'=>$wx_rep['UserName'],
+					'UserName'=>$postDatas['UserName'],
 					'openid'  =>$wx_rep['openid'],
 					'face'    =>$postDatas['face'],
 					'u_place' =>$postDatas['u_place'],
 					'u_ind_type' =>$postDatas['u_ind_type'],
-					'timelong'   =>$postDatas['timelong'],
+					'u_agent'   =>$postDatas['u_agent'],
 					];
 					$sql=self::addUserSql($dateArr);
 					$SqlRes=$this->pdo->exec($sql);
@@ -84,6 +84,7 @@ class UserController {
 		            'error' => $e->getMessage()
 		        ]
 			));
+			return $response;
 		}
    }
 
@@ -117,11 +118,11 @@ class UserController {
 		if(empty($dateArr['u_ind_type'])){
 			$dateArr['u_ind_type']='DEFAULT';
 		}
-		if(empty($dateArr['timelong'])){
-			$dateArr['timelong']='DEFAULT';
+		if(empty($dateArr['u_agent'])){
+			$dateArr['u_agent']='DEFAULT';
 		}
-		$sql="INSERT INTO user (`username`,`openid`,`face`,`u_place`,`u_ind_type`,`timelong`)
-	    VALUES ('{$dateArr['UserName']}','{$dateArr['openid']}','{$dateArr['face']}','{$dateArr['u_place']}','{$dateArr['u_ind_type']}','{$dateArr['timelong']}')";
+		$sql="INSERT INTO user (`username`,`openid`,`face`,`u_place`,`u_ind_type`,`u_agent`)
+	    VALUES ('{$dateArr['UserName']}','{$dateArr['openid']}','{$dateArr['face']}','{$dateArr['u_place']}','{$dateArr['u_ind_type']}','{$dateArr['u_agent']}')";
 	    return $sql;
 	}
 
