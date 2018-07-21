@@ -17,10 +17,11 @@
 <text class="title">常用功能</text>
 <view class="yuan1" bindtap="navigateBack">
 <image src="/images/collection.png"></image>
-<text>我的收藏</text>
 </view>
+<text class="cc">我的收藏</text>
 <view class="yuan2" bindtap="Back">
 <image src="/images/history.png"></image>
-<text>历史记录</text>
+
 </view>
+<text class="hh">历史记录</text>
 </view>
