@@ -11,3 +11,8 @@ $a=preg_match($pattern, $str,$m);
 var_dump($a);
 var_dump($m);
 exit();
+
+$pattern='/(\s+)|[~@#$%^&*(){};\',.\/?]+/i';
+$str='第一次*招标信息*啊啊';
+$arr=preg_split($pattern, $str);
+var_dump($arr);exit();
