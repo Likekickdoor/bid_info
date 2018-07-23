@@ -26,7 +26,6 @@ class SearchController {
 				$postDatas['searhword']='';
 			}
 			$searhword = self::SpiltWord($postDatas['searhword']);
-			var_dump($searhword); exit();
 			$sql = self::KeywordSql($searhword,(int)$postDatas['startpage']*20,20);
 			$res = self::SearchAllInfo($this->pdo,$sql);
 			$res=self::AddCollectSign($res);//添加收藏标示
@@ -82,29 +81,33 @@ class SearchController {
 
    /**
    *@param  startpage String 定位地点
-   *首页推荐	{"place":"北京","startpage":"0"}
+   *首页推荐	{"place":"北京","startpage":"0"}和cookie['sessionId']
    */
    public function recommend(Request $request, Response $response){
    	  try{
 	   	$postDatas = $request->getParsedBody();
-	   	if(empty($postDatas)||empty($_COOKIE['sessionId'])){
+	   	if(empty($postDatas)){
 	   		throw new Exception("Error,lost params", 400);
 	   	}
 	   	$place=$postDatas['place'];//定位地点
 	   	$startpage=$postDatas['startpage'];
 		$lit=10;
-	   	$cookie    = $_COOKIE['sessionId'];//判断用户cookice
+	   	if(!empty($_COOKIE['sessionId'])){
+		$cookie    = $_COOKIE['sessionId'];//判断用户cookice,使用用户的关键字来推荐
 	   	$keywordsql  = "SELECT `u_agent`,`u_ind_type`,`u_place` FROM `user` WHERE `uid`={$cookie}";
 	   	$stmt=$this->pdo->prepare($keywordsql);
 		$stmt->execute();
 		$keywordArr=$stmt->fetch(PDO::FETCH_ASSOC);//查询出来为空则false,有则为数组
+	   	}else{
+	   	$keywordArr=[];
+	   	}
 		if(empty($keywordArr)){
 			$startpage*=$lit;
 			$tail=" ORDER BY `btime_begin` DESC LIMIT {$startpage},{$lit}";
 			$sql = "SELECT `bid`,`b_title`,`b_stype`,`agent_comp`,`b_place`,`btime_begin` FROM `bidinfo` WHERE ( `b_title` LIKE '%{$place}%' OR `b_stype` LIKE '%{$place}%' OR `agent_comp` LIKE '%{$place}%' OR `b_place` LIKE '%{$place}%' ) AND `status`=1".$tail;
 		}else{
 			$keywordArr=self::Killempytkey($keywordArr);
-			$sql=self::KeywordSql($keywordArr,$startpage*$list,$list);
+			$sql=self::KeywordSql($keywordArr,$startpage*$lit,$lit);
 		}
 		$res=self::SearchAllInfo($this->pdo,$sql);
 		$res=self::AddCollectSign($res);//添加收藏标示
@@ -128,13 +131,28 @@ class SearchController {
 			return $response;
 	  }
    }
-
+   /**
+   *招标信息浏览量add
+   */
+   public function searchbid_views_rank(Request $request, Response $response){
+	    $sql="SELECT *FROM `bidinfo_views_rank` LIMIT 0,10";
+	    $res=self::SearchAllInfo($this->pdo,$sql);
+	    //执行了查询语句开始返回
+		$response = $response->withStatus(200)->withHeader('Content-type', 'application/json');
+		$response->getBody()->write(json_encode(
+			[
+				'statusCode' => 'ok',
+		        'msg' => $res
+			]
+		));
+		return $response;
+   }
    /**
    *@param String 正则匹配分割用户输入
    *@return Array
    */
    private function SpiltWord($inputword){
-     $pattern='/(\s+)|[~@#$%^&*(){};:\',.\/?]+/i';
+     $pattern='/(\s+)|[~@#$%^&*()}{;:\',.\/?]+/i';
      $arr=preg_split($pattern, $inputword);
      return $arr;
    }
@@ -181,6 +199,15 @@ class SearchController {
    			$arrs[$i]['collect_sign']=0;
    		}
    		return $arrs;
+   }
+   /**
+   *招标信息浏览量add
+   */
+   private function add_bidinfo_views($pdo,$bid){
+	   	$sql = "UPDATE `notice` SET views=views+1 WHERE `about_id`={$bid}";
+	   	$stmt=$pdo->prepare($sql);
+		$res=$stmt->execute();
+		return $res;
    }
 
 }
