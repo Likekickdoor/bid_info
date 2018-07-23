@@ -21,5 +21,6 @@ $container['db'] = function ($config) {
 $app->post('/onlogin','\UserController:onlogin');//路由,使用控制器类中的方法
 $app->post('/searchbid','\SearchController:searchbid');//模糊搜索
 $app->get('/agent_company_rank','\SearchController:agent_company_rank');//代理公司的排名
+$app->post('/recommend','\SearchController:recommend');//推荐信息
 $app->run();//启动监听函数
 ?>
