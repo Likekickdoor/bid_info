@@ -4,7 +4,7 @@ Page({
   navigateSkip: function () {
     wx.navigateTo({
       title: "goback",
-      url: '../collection/collection'
+      url: '../keyy/keyy'
     })
   },
   navigateBack: function () {
