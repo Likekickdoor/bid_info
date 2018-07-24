@@ -6,6 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userName:wx.getStorageSync('userName'),
+    userPicture: wx.getStorageSync('userpicture')
   },
 
   /**
