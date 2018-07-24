@@ -1,3 +1,30 @@
 <!--pages/detail/detail.wxml-->
-<import src="../../wxParse/wxParse.wxml"/>
-<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+<view class='top'>
+  <view class='title'>{{content.b_title}}</view>
+  <view class='text'>
+    <view class='time'>{{content.btime_begin}}</view>
+    <view class='touch'>点击量：{{content.views}}</view>
+  </view>
+</view>
+<view class='template'>
+<import src="../../wxParse/wxParse.wxml" />
+<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>
+<view class='infor'>
+<text>
+复制原链接查看详情\n
+(<text selectable="{{true}}">{{content.org_href}}</text>)</text>
+</view>
+<view class='anniu'>
+  <view class='share1'>
+    <button class='share' id="shareBtn" open-type="share" type="primary" hover-class="other-button-hover">
+      <image src='/images/share.jpg'></image>
+    </button>
+    <text>分享</text>
+  </view>
+  <view class='shoucang'>
+    <image src='/images/shoucang.png' wx:if="{{content.collect==1?false:true}}" catchtap='collect' data-jobid="{{content.id}}"></image>
+    <image src='/images/shoucang1.jpg' wx:if="{{content.collect==1?true:false}}" catchtap='nocollect' data-jobid="{{content.id}}"></image>
+    <text>收藏</text>
+  </view>
+</view>
