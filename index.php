@@ -19,6 +19,8 @@ $container['db'] = function ($config) {
     return $pdo;
 };
 $app->post('/onlogin','\UserController:onlogin');//路由,使用控制器类中的方法,登录
+$app->post('/updatekeyword','\UserController:updateKeyword');//个人关键字更新
+$app->get('/userkeyword','\UserController:userKeyword');//获得个人关键字
 $app->post('/searchbid','\SearchController:searchbid');//模糊搜索
 $app->get('/agent_company_rank','\SearchController:agent_company_rank');//代理公司的排名
 $app->get('/searchbid_views_rank','\SearchController:searchbid_views_rank');//信息热度排名

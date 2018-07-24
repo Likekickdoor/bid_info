@@ -91,7 +91,73 @@ class UserController {
 			return $response;
 		}
    }
-
+   /**
+   *获取到基本信息
+   */
+   public function userKeyword(Request $request,Response $response){
+	   try{
+		   if(empty($_COOKIE['sessionId'])){
+		   		throw new Exception("Sorry,You don't promiss,lost cookie", 403);
+		   }
+		   $uid=$_COOKIE['sessionId'];
+		   $sql = "SELECT `u_place`,`u_ind_type`,`u_agent` FROM `user` WHERE `uid`={$uid}";
+		   $stmt=$this->pdo->prepare($sql);
+		   $stmt->execute();
+		   $res =$stmt->fetch(PDO::FETCH_ASSOC);
+		   //返回更改结果
+		   $response = $response->withStatus(200)->withHeader('Content-type', 'application/json');
+		   $response->getBody()->write(json_encode(
+				[
+		            'statusCode' => 'ok',
+		            'msg' => $res
+		        ]
+		   ));
+		   return $response;
+	   }catch(Exception $e){
+			$response = $response->withStatus($e->getCode())->withHeader('Content-type', 'application/json');
+			$response->getBody()->write(json_encode(
+				[
+		            'errorCode' => $e->getCode(),
+		            'error' => $e->getMessage()
+		        ]
+			));
+			return $response;
+	   }
+   }
+   /**
+   *@param 更改关键字信息
+   *{"u_place":"长沙","u_ind_type":"软件","u_agent":"中国国际投标"}和$cookie
+   */
+   public function updateKeyword(Request $request, Response $response){
+	   try{
+	   	   if(empty($_COOKIE['sessionId'])){
+	   	   		throw new Exception("Sorry,You don't promiss,lost cookie", 403);
+	   	   }
+	   	   $uid=$_COOKIE['sessionId'];
+		   $str = self::setUpdateValues($request->getParsedBody());
+		   $sql = 'UPDATE `user` SET '.$str.' WHERE `uid`='.$uid;
+		   $stmt=$this->pdo->prepare($sql);
+		   $res=$stmt->execute();
+		   //返回更改结果
+		   $response = $response->withStatus(200)->withHeader('Content-type', 'application/json');
+		   $response->getBody()->write(json_encode(
+				[
+		            'statusCode' => 'ok',
+		            'msg' => $res
+		        ]
+		   ));
+		   return $response;
+	   }catch(Exception $e){
+			$response = $response->withStatus($e->getCode())->withHeader('Content-type', 'application/json');
+			$response->getBody()->write(json_encode(
+				[
+		            'errorCode' => $e->getCode(),
+		            'error' => $e->getMessage()
+		        ]
+			));
+			return $response;
+	   }
+   }
    /**
 	*@param 去微信申请到用户的识别码并存库
 	*@return 返回数组
@@ -127,6 +193,15 @@ class UserController {
 		$sql="INSERT INTO user (`username`,`openid`,`face`,`u_place`,`u_ind_type`,`u_agent`)
 	    VALUES ('{$dateArr['UserName']}','{$dateArr['openid']}','{$dateArr['face']}','{$dateArr['u_place']}','{$dateArr['u_ind_type']}','{$dateArr['u_agent']}')";
 	    return $sql;
+	}
+	private function setUpdateValues($dateArr){
+		$str='';
+		foreach ($dateArr as $key => $value) {
+			empty($value)?$value='DEFAULT':$value="'{$value}'";
+			$str.=",`$key`=$value";
+		}
+		$str=substr($str,1);
+		return $str;
 	}
 
 }
