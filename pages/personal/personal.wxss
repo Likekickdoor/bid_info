@@ -83,21 +83,19 @@ page {
   margin-left: 70rpx;
 }
 .yuan1{
-  width: 170rpx;
-  height: 170rpx;
-  
+  width: 156rpx;
+  height: 156rpx;
   float: left;
-  
-  margin-top: 70rpx;
-margin-left: -80rpx;
+  margin-top: 90rpx;
+ margin-left: -80rpx;
   border-radius: 90rpx;
   background-color: white;
 }
 .yuan1 image{
   width: 80rpx;
   height: 80rpx;
-  margin-left: 46rpx;
-  margin-top: 40rpx;
+  margin-left: 37rpx;
+  margin-top: 36rpx;
 }
 .cc{
    font-size: 35rpx;
@@ -108,28 +106,26 @@ margin-left: -80rpx;
 .hh{
   font-size: 35rpx;
   float: left;
-  margin-top: 23rpx;
-  margin-left: 195rpx;
+  margin-top: 20rpx;
+  margin-left: 220rpx;
 }
 .yuan2{
-  width: 170rpx;
-  height: 170rpx;
+ width: 156rpx;
+  height: 156rpx;
   
   float: right;
   margin-right: 120rpx;
-  margin-top: 68rpx;
+   margin-top: 90rpx;
   border-radius: 90rpx;
   background-color: white;
 }
 .yuan2 image{
   width: 80rpx;
   height: 80rpx;
-  margin-left: 46rpx;
-  margin-top: 40rpx;
+   margin-left: 40rpx;
+  margin-top: 36rpx;
 }
 .yuan2 text{
   font-size: 30rpx;
-  float: left;
-  margin-top: 60rpx;
-  margin-left: 23rpx;
+  
 }

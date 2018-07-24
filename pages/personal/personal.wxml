@@ -21,7 +21,6 @@
 <text class="cc">我的收藏</text>
 <view class="yuan2" bindtap="Back">
 <image src="/images/history.png"></image>
-
 </view>
 <text class="hh">历史记录</text>
 </view>

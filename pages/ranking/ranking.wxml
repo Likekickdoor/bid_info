@@ -14,33 +14,53 @@
     <view class="content">
     <view class="k1">
     <image src='/images/1.png'></image>
-    <text class="name">公司名称公司名称名称名称</text>
-    <text class="shuju">2777333</text>
+    <text class="name">{{rank1_type}}</text>
+    <text class="shuju">{{rank1}}</text>
     </view>
     <view class="k2"> 
     <image src='/images/2.png'></image>
-    <text class="name">公司名称公司名称名称名称</text>
-    <text class="shuju">2777333</text>
+    <text class="name">{{rank2_type}}</text>
+    <text class="shuju">{{rank2}}</text>
     </view>
     <view class="k3">
     <image src='/images/3.png'></image>
-    <text class="name">公司名称公司名称名称名称</text>
-    <text class="shuju">2777333</text>
+    <text class="name">{{rank3_type}}</text>
+    <text class="shuju">{{rank3}}</text>
     </view>
     <view class="k4">
     <text class="number">4</text>
-    <text class="name">公司名称公司名称名称名称</text>
-    <text class="shuju">2777333</text>
+    <text class="name">{{rank4_type}}</text>
+    <text class="shuju">{{rank4}}</text>
     </view>
     <view class="k5">
     <text class="number">5</text>
-    <text class="name">公司名称公司名称名称名称</text>
-    <text class="shuju">2777333</text>
+    <text class="name">{{rank5_type}}</text>
+    <text class="shuju">{{rank5}}</text>
     </view>
     <view class="k6">
     <text class="number">6</text>
-    <text class="name">公司名称公司名称名称名称</text>
-    <text class="shuju">2777333</text>
+    <text class="name">{{rank6_type}}</text>
+    <text class="shuju">{{rank6}}</text>
+    </view>
+    <view class="k7">
+    <text class="number">7</text>
+    <text class="name">{{rank7_type}}</text>
+    <text class="shuju">{{rank7}}</text>
+    </view>
+    <view class="k8">
+    <text class="number">8</text>
+    <text class="name">{{rank8_type}}</text>
+    <text class="shuju">{{rank8}}</text>
+    </view>
+    <view class="k9">
+    <text class="number">9</text>
+    <text class="name">{{rank9_type}}</text>
+    <text class="shuju">{{rank9}}</text>
+    </view>
+    <view class="k10">
+    <text class="number">10</text>
+    <text class="name">{{rank10_type}}</text>
+    <text class="shuju">{{rank10}}</text>
     </view>
     </view>
     </view>
@@ -50,38 +70,58 @@
     <view class="top">
     <text class="tt1">排名</text>
     <text class="tt2">信息标题</text>
-    <text class="tt3">数据</text>
+    <text class="tt3">浏览量</text>
     </view>
     <view class="content">
-    <view class="k1">
+    <view class="x1">
     <image src='/images/1.png'></image>
-    <text class="name">公司名称公司名称名称名称</text>
-    <text class="shuju">2777333</text>
+    <text class="name">{{news1_type}}</text>
+    <text class="shuju">{{news1}}</text>
     </view>
-    <view class="k2">
+    <view class="x2">
     <image src='/images/2.png'></image>
-    <text class="name">公司名称公司名称名称名称</text>
-    <text class="shuju">2777333</text>
+    <text class="name">{{news2_type}}</text>
+    <text class="shuju">{{news2}}</text>
     </view>
-    <view class="k3">
+    <view class="x3">
     <image src='/images/3.png'></image>
-    <text class="name">公司名称公司名称名称名称</text>
-    <text class="shuju">2777333</text>
+    <text class="name">{{news3_type}}</text>
+    <text class="shuju">{{news3}}</text>
     </view>
-    <view class="k4">
+    <view class="x4">
     <text class="number">4</text>
-    <text class="name">公司名称公司名称名称名称</text>
-    <text class="shuju">2777333</text>
+    <text class="name">{{news4_type}}</text>
+    <text class="shuju">{{news4}}</text>
     </view>
-    <view class="k5">
+    <view class="x5">
     <text class="number">5</text>
-    <text class="name">公司名称公司名称名称名称</text>
-    <text class="shuju">2777333</text>
+    <text class="name">{{news5_type}}</text>
+    <text class="shuju">{{news5}}</text>
     </view>
-    <view class="k6">
+    <view class="x6">
     <text class="number">6</text>
-    <text class="name">公司名称公司名称名称名称</text>
-    <text class="shuju">2777333</text>
+    <text class="name">{{news6_type}}</text>
+    <text class="shuju">{{news6}}</text>
+    </view>
+     <view class="x7">
+    <text class="number">7</text>
+    <text class="name">{{news7_type}}</text>
+    <text class="shuju">{{news7}}</text>
+    </view>
+    <view class="x8">
+    <text class="number">8</text>
+    <text class="name">{{news8_type}}</text>
+    <text class="shuju">{{news8}}</text>
+    </view>
+    <view class="x9">
+    <text class="number">9</text>
+    <text class="name">{{news9_type}}</text>
+    <text class="shuju">{{news9}}</text>
+    </view>
+    <view class="x10">
+    <text class="number">10</text>
+    <text class="name">{{news10_type}}</text>
+    <text class="shuju">{{news10}}</text>
     </view>
     </view>
     </view>
