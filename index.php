@@ -18,10 +18,11 @@ $container['db'] = function ($config) {
     $pdo->getAttribute(PDO::ATTR_SERVER_INFO);
     return $pdo;
 };
-$app->post('/onlogin','\UserController:onlogin');//路由,使用控制器类中的方法
+$app->post('/onlogin','\UserController:onlogin');//路由,使用控制器类中的方法,登录
 $app->post('/searchbid','\SearchController:searchbid');//模糊搜索
 $app->get('/agent_company_rank','\SearchController:agent_company_rank');//代理公司的排名
 $app->get('/searchbid_views_rank','\SearchController:searchbid_views_rank');//信息热度排名
 $app->post('/recommend','\SearchController:recommend');//推荐信息
+$app->get('/search_detail','\SearchController:search_detail');//详情信息
 $app->run();//启动监听函数
 ?>

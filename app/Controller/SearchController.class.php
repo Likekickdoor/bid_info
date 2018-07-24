@@ -148,6 +148,46 @@ class SearchController {
 		return $response;
    }
    /**
+   *详情信息
+   */
+   public function search_detail(Request $request, Response $response){
+	   try{
+		   $getbid = $request->getParam('bid');
+		   if(empty($getbid)){
+		   	throw new Exception("Error,lost params", 400);
+		   }
+		   $sql = "SELECT *FROM `detail_info` WHERE `bid`={$getbid}";
+		   $stmt=$this->pdo->prepare($sql);
+		   $stmt->execute();
+		   $res = $stmt->fetch(PDO::FETCH_ASSOC);
+		   if(empty($res)){
+		   		throw new Exception("Error,Not datas", 200);
+		   }else{
+		   $res['b_detail'] = htmlspecialchars_decode($res['b_detail']);
+		   $res['collect_sign'] = 0;	
+		   }
+		   // print_r($res['b_detail']);exit();
+		   //执行了查询语句开始返回
+		   $response = $response->withStatus(200)->withHeader('Content-type', 'application/json');
+		   $response->getBody()->write(json_encode(
+			[
+				'statusCode' => 'ok',
+			    'msg' => $res
+			]
+			));
+		return $response;
+	   }catch(Exception $e){
+			$response = $response->withStatus($e->getCode())->withHeader('Content-type', 'application/json');
+			$response->getBody()->write(json_encode(
+				[
+			        'errorCode' => $e->getCode(),
+			        'error' => $e->getMessage()
+			    ]
+			));
+			return $response;
+	   }
+   }
+   /**
    *@param String 正则匹配分割用户输入
    *@return Array
    */
