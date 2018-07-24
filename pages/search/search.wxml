@@ -1,6 +1,6 @@
 <!--pages/search/search.wxml-->
 <view class='search'>
-  <input placeholder-class="phcolor" placeholder="请输入你想要查询的招标信息"></input>
+  <input placeholder-class="phcolor" placeholder="多关键字用空格、逗号等字符分隔" bindinput="search" bindconfirm="searchSubmit" value="{{value}}"></input>
 </view>
 <view class="nav">
   <view class="nav-son " bindtap="listqy" data-nav="1">
@@ -35,11 +35,16 @@
   </view>
 </view>
 <view class='content1'>
-  <view class='box'>
-    <text class='title'>安徽滁州技师学院教学诊改平台采购项目（二次）招标公告</text>
-    <view class='text'>
-      <text>2018.07.16 10:45:00 | 安徽</text>
-      <image src='/images/shoucang.png'></image>
+  <block wx:for="{{content}}" wx:for-item="item">
+    <view class='box'  bindtap='skip' data-jobid="{{item.bid}}">
+      <text class='title'>{{item.b_title}}</text>
+      <view class='text'>
+      <view class='text1'>
+      <text> {{item.b_place}} {{item.b_stype}}</text>
+        <text>{{item.btime_begin}} </text></view>
+        <image src='/images/shoucang.png' wx:if="{{item.collect_sign==1?false:true}}" catchtap='collect' data-jobid="{{item.bid}}"></image>
+        <image src='/images/shoucang1.jpg' wx:if="{{item.collect_sign==1?true:false}}" catchtap='nocollect' data-jobid="{{item.bid}}"></image>
+      </view>
     </view>
-  </view>
+  </block>
 </view>

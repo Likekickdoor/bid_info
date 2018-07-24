@@ -1,4 +1,26 @@
 // pages/search/search.js
+var page=0;
+var searchValue="";
+function search(that) {
+  page = 0;
+  wx.request({
+    url: 'https://m.ctrltab.xyz/bid_info/searchbid',
+    method: "POST",
+    data: {
+      searhword: searchValue,
+      startpage: page
+    },
+    header: {
+      "content-type": "application/x-www-form-urlencoded" // 默认值
+    },
+    success: function (obj) {
+      console.log(obj.data.msg);
+      that.setData({
+        content: obj.data.msg
+      })
+    }
+  })
+}
 Page({
 
   /**
@@ -17,7 +39,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that=this;
+    searchValue = options.id;
+    search(that);
   },
 
   /**
@@ -84,6 +108,49 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       region: e.detail.value
+    })
+  },
+  search: function (e) {
+      searchValue= e.detail.value
+  },
+  searchSubmit: function () {
+    var that=this;
+    this.setData({
+      value:''
+    })
+    search(that);
+  },
+  onReachBottom: function () {
+    var that = this;
+    page = page + 1;
+    console.log(page)
+    wx.request({
+      url: 'https://m.ctrltab.xyz/bid_info/searchbid',
+      method: "POST",
+      data: {
+        searhword: searchValue,
+        startpage: page
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded" // 默认值
+      },
+      success: function (obj) {
+        var data1 = that.data.content;
+        console.log(that.data)
+        for (var i in obj.data.msg) {
+          data1.push(obj.data.msg[i])
+        }
+        that.setData({
+          content: data1
+        })
+      }
+    })
+  },
+  skip: function (e) {
+    console.log(e)
+    var jobid = e.currentTarget.dataset.jobid;
+    wx.navigateTo({
+      url: '../detail/detail?id=' + jobid,
     })
   }
 })
