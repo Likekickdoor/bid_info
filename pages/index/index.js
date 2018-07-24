@@ -1,6 +1,7 @@
 // pages/index/index.js
 var bmap = require('../../libs/bmap-wx.js');
 var page=0;
+var content;
 Page({
 
   /**
@@ -34,8 +35,9 @@ Page({
         },
         success: function (obj) {
           console.log(obj.data.msg);
+          content = obj.data.msg
           that.setData({
-            content: obj.data.msg
+            content: content
           })
         }
       })
@@ -156,6 +158,7 @@ Page({
         for (var i in obj.data.msg) {
           data1.push(obj.data.msg[i])
         }
+        content = data1
         that.setData({
           content: data1
         })
@@ -167,6 +170,60 @@ Page({
     var jobid = e.currentTarget.dataset.jobid;
     wx.navigateTo({
       url: '../detail/detail?id=' + jobid,
+    })
+  },
+  collect:function(e){
+    var that = this;
+    var jobid = e.currentTarget.dataset.jobid;
+    wx.request({
+      url: 'https://m.ctrltab.xyz/bid_info/collect',
+      method: "GET",
+      data: {
+        id: jobid,
+        status:1
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded",
+        "Cookie": "sessionId=" + wx.getStorageSync('sessionId')
+      },
+      success: function (obj) {
+        console.log(obj)
+        for (var i in content) {
+          if (content[i].bid == jobid) {
+            content[i].collect = 1
+          }
+        }
+        that.setData({
+          content: content
+        })
+      }
+    })
+  },
+  nocollect:function(e){
+    var that = this;
+    var jobid = e.currentTarget.dataset.jobid;
+    wx.request({
+      url: 'https://m.ctrltab.xyz/bid_info/collect',
+      method: "GET",
+      data: {
+        id: jobid,
+        status: 0
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded",
+        "Cookie": "sessionId=" + wx.getStorageSync('sessionId')
+      },
+      success: function (obj) {
+        console.log(obj)
+        for (var i in content) {
+          if (content[i].bid == jobid) {
+            content[i].collect = 0
+          }
+        }
+        that.setData({
+          content: content
+        })
+      }
     })
   }
 })
