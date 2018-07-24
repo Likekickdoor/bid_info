@@ -156,6 +156,7 @@ class SearchController {
 		   if(empty($getbid)){
 		   	throw new Exception("Error,lost params", 400);
 		   }
+		   self::add_bidinfo_views($this->pdo,$getbid);//该招标信息浏览量++
 		   $sql = "SELECT *FROM `detail_info` WHERE `bid`={$getbid}";
 		   $stmt=$this->pdo->prepare($sql);
 		   $stmt->execute();
