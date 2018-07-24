@@ -1,5 +1,6 @@
 // pages/index/index.js
 var bmap = require('../../libs/bmap-wx.js');
+var page=0;
 Page({
 
   /**
@@ -7,13 +8,37 @@ Page({
    */
   data: {
     userName:wx.getStorageSync('userName'),
-    userPicture: wx.getStorageSync('userpicture')
+    userPicture: wx.getStorageSync('userpicture'),
+    searchValue:"",
+    value:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that=this;
+    page = 0;
+    var place = wx.getStorageSync('location_place');
+    console.log(wx.getStorageSync('sessionId'))
+      wx.request({
+        url: 'https://m.ctrltab.xyz/bid_info/recommend',
+        method: "POST",
+        data: {
+          place: place.substring(0, place.length - 1),
+          startpage: page
+        },
+        header: {
+          "content-type": "application/json" ,
+          "Cookie": "sessionId=" +  wx.getStorageSync('sessionId')
+        },
+        success: function (obj) {
+          console.log(obj.data.msg);
+          that.setData({
+            content: obj.data.msg
+          })
+        }
+      })
 
   },
 
@@ -43,6 +68,7 @@ Page({
       that.setData({
         city: wx.getStorageSync('location_place')
       });
+      console.log(wx.getStorageSync('location_place'))
     }
     that.setData({
       city: wx.getStorageSync('location_place')
@@ -94,8 +120,53 @@ Page({
     })
   },
   searchSubmit:function(){
+    var keyid = this.data.searchValue
+    this.setData({
+      value:''
+    })
     wx.navigateTo({
-      url: '../search/search',
+      url: '../search/search?id=' + keyid,
+    })
+  },
+  search:function(e){
+    this.setData({
+      searchValue: e.detail.value
+    })
+  },
+  onReachBottom: function () {
+    var that = this;
+    page = page + 1;
+    var place = wx.getStorageSync('location_place');
+    console.log(wx.getStorageSync('id'))
+    wx.request({
+      url: 'https://m.ctrltab.xyz/bid_info/recommend',
+      method: "POST",
+      data: {
+        place: place.substring(0, place.length - 1),
+        startpage: page,
+
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded",
+        "Cookie": "sessionId=" + wx.getStorageSync('sessionId')
+      },
+      success: function (obj) {
+        var data1 = that.data.content;
+        console.log(that.data)
+        for (var i in obj.data.msg) {
+          data1.push(obj.data.msg[i])
+        }
+        that.setData({
+          content: data1
+        })
+      }
+    })
+  },
+  skip: function (e) {
+    console.log(e)
+    var jobid = e.currentTarget.dataset.jobid;
+    wx.navigateTo({
+      url: '../detail/detail?id=' + jobid,
     })
   }
 })

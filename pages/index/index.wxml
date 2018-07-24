@@ -14,7 +14,7 @@
       <text>{{city}}</text>
     </view>
     <form bindsubmit="searchSubmit" action="" class='input'>
-      <input placeholder="请输入你想要查询的招标信息" bindconfirm="searchSubmit"></input>
+      <input placeholder="请输入你想要查询的招标信息" bindconfirm="searchSubmit" bindinput="search" value="{{value}}"></input>
     </form>
   </view>
   <view class='type'>
@@ -38,11 +38,17 @@
 </view>
 <view class='content'>
   <view class='head'>为你推荐</view>
-  <view class='box'>
-    <text class='title'>安徽滁州技师学院教学诊改平台采购项目（二次）招标公告</text>
-    <view class='text'>
-      <text>2018.07.16 10:45:00 | 安徽</text>
-      <image src='/images/shoucang.png'></image>
+  <block wx:for="{{content}}" wx:for-item="item">
+    <view class='box' bindtap='skip' data-jobid="{{item.bid}}">
+      <text class='title'>{{item.b_title}}</text>
+      <view class='text'>
+        <view class='text1'>
+          <text> {{item.b_place}} {{item.b_stype}}</text>
+          <text>{{item.btime_begin}} </text>
+        </view>
+        <image src='/images/shoucang.png' wx:if="{{item.collect==1?false:true}}" catchtap='collect' data-jobid="{{item.bid}}"></image>
+        <image src='/images/shoucang1.jpg' wx:if="{{item.collect==1?true:false}}" catchtap='nocollect' data-jobid="{{item.bid}}"></image>
+      </view>
     </view>
-  </view>
+  </block>
 </view>

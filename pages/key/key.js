@@ -25,7 +25,8 @@ function login_fun(that){
           method: "POST",
           success: function (res) {
             console.log(res.data)
-            wx.setStorageSync('id', res.data.sessionId);
+            wx.setStorageSync('sessionId', res.data.sessionId);
+            console.log(wx.getStorageSync('sessionId'))
           },
           fail: function () {
             console.log("发送失败");

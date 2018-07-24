@@ -1,11 +1,16 @@
 {
   "pages": [
-    "pages/welcome/welcome",
+    "pages/index/index",    
+    "pages/detail/detail",    
+    "pages/welcome/welcome",    
     "pages/search/search",
     "pages/key/key",
+<<<<<<< HEAD
     "pages/keyy/keyy",
     "pages/detail/detail",
     "pages/index/index",
+=======
+>>>>>>> dev
     "pages/ranking/ranking",
     "pages/personal/personal",
     "pages/history/history",
