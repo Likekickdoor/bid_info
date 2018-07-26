@@ -9,7 +9,6 @@ page{
   flex-direction: column;
 }
 .container .top{
-  width: 100%;
   height: 100rpx;
   line-height: 100rpx;
   padding-left: 30rpx;
@@ -53,7 +52,7 @@ page{
   flex-direction: row;
   padding-left: 30rpx;
 }
-.container .btn .finish{
+.container .btn .finish,.skip{
   width: 220rpx;
   height: 80rpx;
   line-height: 80rpx;
@@ -61,5 +60,25 @@ page{
   background: rgba(0,75,171, 0.8);
   color: #fff;
   border-radius: 5px;
-  margin-left: 200rpx;
+  margin-left: 74rpx;
+}
+.skip{
+  margin-left: 70rpx;
+  background: #B9B3B6;  
+}
+.save{
+  width: 100%;
+  height: 100rpx;
+  float: left;
+  margin-top: 120rpx;
+  margin-left: -550rpx;
+  color: green;
+}
+.fail{
+  width: 100%;
+  height: 100rpx;
+  float: left;
+  margin-top: 176rpx;
+  margin-left: -500rpx;
+  color: red;
 }

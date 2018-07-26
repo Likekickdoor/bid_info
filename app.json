@@ -1,20 +1,16 @@
 {
   "pages": [
     "pages/index/index",    
-    "pages/detail/detail",    
+    "pages/keyy/keyy",
     "pages/welcome/welcome",    
+    "pages/detail/detail",    
     "pages/search/search",
     "pages/key/key",
-<<<<<<< HEAD
-    "pages/keyy/keyy",
-    "pages/detail/detail",
-    "pages/index/index",
-=======
->>>>>>> dev
     "pages/ranking/ranking",
     "pages/personal/personal",
     "pages/history/history",
     "pages/collection/collection"
+    
    
   ],
   "window": {

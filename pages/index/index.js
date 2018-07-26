@@ -30,7 +30,7 @@ Page({
         },
         header: {
           "content-type": "application/json" ,
-          "Cookie": "sessionId=" +  wx.getStorageSync('sessionId')
+          "Cookie": "sessionId="+ wx.getStorageSync('sessionId')
         },
         success: function (obj) {
           console.log(obj.data.msg);
