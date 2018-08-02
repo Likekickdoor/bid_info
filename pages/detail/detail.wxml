@@ -23,8 +23,8 @@
     <text>分享</text>
   </view>
   <view class='shoucang'>
-    <image src='/images/shoucang.png' wx:if="{{content.collect==1?false:true}}" catchtap='collect' data-jobid="{{content.id}}"></image>
-    <image src='/images/shoucang1.jpg' wx:if="{{content.collect==1?true:false}}" catchtap='nocollect' data-jobid="{{content.id}}"></image>
+    <image src='/images/shoucang.png' wx:if="{{content.collect_sign==1?false:true}}" catchtap='collect' data-jobid="{{content.bid}}"></image>
+    <image src='/images/shoucang1.jpg' wx:if="{{content.collect_sign==1?true:false}}" catchtap='nocollect' data-jobid="{{content.bid}}"></image>
     <text>收藏</text>
   </view>
 </view>

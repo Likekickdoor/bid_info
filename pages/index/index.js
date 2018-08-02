@@ -1,6 +1,7 @@
 // pages/index/index.js
 var bmap = require('../../libs/bmap-wx.js');
 var page=0;
+var content;
 Page({
 
   /**
@@ -18,6 +19,8 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
+
+    //首页推荐
     page = 0;
     var place = wx.getStorageSync('location_place');
     console.log(wx.getStorageSync('sessionId'))
@@ -34,8 +37,31 @@ Page({
         },
         success: function (obj) {
           console.log(obj.data.msg);
-          that.setData({
-            content: obj.data.msg
+          content = obj.data.msg
+          //收藏展示
+          wx.request({
+            url: 'https://m.ctrltab.xyz/bid_info/show',
+            method: "GET",
+            data: {
+              classes: "collect",
+              ye: 1
+            },
+            header: {
+              "content-type": "application/json",
+              "Cookie": "sessionId=" + wx.getStorageSync('sessionId')
+            },
+            success: function (obj) {
+              for (var i in obj.data.ID) {
+                for (var j in content) {
+                  if (content[j].bid == obj.data.ID[i]) {
+                    content[j].collect_sign = 1
+                  }
+                }
+              }
+              that.setData({
+                content: content
+              })
+            }
           })
         }
       })
@@ -156,8 +182,31 @@ Page({
         for (var i in obj.data.msg) {
           data1.push(obj.data.msg[i])
         }
-        that.setData({
-          content: data1
+        content = data1
+        //收藏展示
+        wx.request({
+          url: 'https://m.ctrltab.xyz/bid_info/show',
+          method: "GET",
+          data: {
+            classes: "collect",
+            ye: 1
+          },
+          header: {
+            "content-type": "application/json",
+            "Cookie": "sessionId=" + wx.getStorageSync('sessionId')
+          },
+          success: function (obj) {
+            for (var i in obj.data.ID) {
+              for (var j in content) {
+                if (content[j].bid == obj.data.ID[i]) {
+                  content[j].collect_sign = 1
+                }
+              }
+            }
+            that.setData({
+              content: content
+            })
+          }
         })
       }
     })
@@ -165,8 +214,99 @@ Page({
   skip: function (e) {
     console.log(e)
     var jobid = e.currentTarget.dataset.jobid;
+    //历史记录存储
+    wx.request({
+      url: 'https://m.ctrltab.xyz/bid_info/history',
+      method: "GET",
+      data: {
+        id: jobid,
+        status:1
+      },
+      header: {
+        "content-type": "application/json",
+        "Cookie": "sessionId=" + wx.getStorageSync('sessionId')
+      },
+      success: function (obj) {
+        console.log(obj.data);
+      }
+    })
+
     wx.navigateTo({
       url: '../detail/detail?id=' + jobid,
+    })
+  },
+  collect:function(e){
+    var that = this;
+    var jobid = e.currentTarget.dataset.jobid;
+    wx.request({
+      url: 'https://m.ctrltab.xyz/bid_info/collect',
+      method: "GET",
+      data: {
+        id: jobid,
+        status:1
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded",
+        "Cookie": "sessionId=" + wx.getStorageSync('sessionId')
+      },
+      success: function (obj) {
+        console.log(obj)
+        for (var i in content) {
+          if (content[i].bid == jobid) {
+            content[i].collect_sign = 1
+          }
+        }
+        that.setData({
+          content: content
+        })
+      }
+    })
+  },
+  nocollect:function(e){
+    var that = this;
+    var jobid = e.currentTarget.dataset.jobid;
+    wx.request({
+      url: 'https://m.ctrltab.xyz/bid_info/collect',
+      method: "GET",
+      data: {
+        id: jobid,
+        status: 0
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded",
+        "Cookie": "sessionId=" + wx.getStorageSync('sessionId')
+      },
+      success: function (obj) {
+        console.log(obj)
+        for (var i in content) {
+          if (content[i].bid == jobid) {
+            content[i].collect_sign = 0
+          }
+        }
+        that.setData({
+          content: content
+        })
+      }
+    })
+  },
+  type1:function(){
+    wx.navigateTo({
+      url: '../search/search?type=' + 2,
+    })
+  },
+  type2: function () {
+    wx.navigateTo({
+      url: '../search/search?type=' + 1,
+    })
+  },
+  type3: function () {
+    wx.navigateTo({
+      url: '../search/search?type=' + 3,
+    })
+  },
+  all:function(){
+    wx.navigateTo({
+      url: '../search/search?id= ',
     })
   }
 })
