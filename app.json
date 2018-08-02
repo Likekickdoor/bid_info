@@ -9,7 +9,8 @@
     "pages/ranking/ranking",
     "pages/personal/personal",
     "pages/history/history",
-    "pages/collection/collection"
+    "pages/collection/collection",
+    "pages/place/place"
    
   ],
   "window": {

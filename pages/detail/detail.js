@@ -1,5 +1,6 @@
 // pages/detail/detail.js
 var WxParse = require('../../wxParse/wxParse.js');
+var content;
 Page({
 
   /**
@@ -24,9 +25,29 @@ Page({
       bid:options.id
     },
     success:function(obj){
-      console.log(obj)
-      that.setData({
-        content: obj.data.msg
+      content = obj.data.msg
+      //收藏展示
+      wx.request({
+        url: 'https://m.ctrltab.xyz/bid_info/show',
+        method: "GET",
+        data: {
+          classes: "collect",
+          ye: 1
+        },
+        header: {
+          "content-type": "application/json",
+          "Cookie": "sessionId=" + wx.getStorageSync('sessionId')
+        },
+        success: function (obj) {
+          for (var i in obj.data.ID) {
+            if (content.bid == obj.data.ID[i]) {
+              content.collect_sign = 1
+            }
+          }
+          that.setData({
+            content: content
+          })
+        }
       })
       var article=obj.data.msg.b_detail;
       WxParse.wxParse('article', 'html', article, that, 5);   
@@ -81,5 +102,50 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  collect: function (e) {
+    var that = this;
+    var jobid = e.currentTarget.dataset.jobid;
+    wx.request({
+      url: 'https://m.ctrltab.xyz/bid_info/collect',
+      method: "GET",
+      data: {
+        id: jobid,
+        status: 1
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded",
+        "Cookie": "sessionId=" + wx.getStorageSync('sessionId')
+      },
+      success: function (obj) {
+
+       content.collect_sign = 1
+        that.setData({
+          content: content
+        })
+      }
+    })
+  },
+  nocollect: function (e) {
+    var that = this;
+    var jobid = e.currentTarget.dataset.jobid;
+    wx.request({
+      url: 'https://m.ctrltab.xyz/bid_info/collect',
+      method: "GET",
+      data: {
+        id: jobid,
+        status: 0
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded",
+        "Cookie": "sessionId=" + wx.getStorageSync('sessionId')
+      },
+      success: function (obj) {
+        content.collect_sign = 0
+        that.setData({
+          content: content
+        })
+      }
+    })
   }
 })

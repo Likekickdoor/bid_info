@@ -18,20 +18,20 @@
     </form>
   </view>
   <view class='type'>
-    <view class='images'>
+    <view class='images' bindtap='type1'>
       <image src='/images/icon1.png'></image>
       <text>货物类</text>
     </view>
-    <view class='images'>
+    <view class='images' bindtap='type2'>
       <image src='/images/icon2.png'></image>
       <text>工程类</text>
     </view>
-    <view class='images'>
+    <view class='images' bindtap='type3'>
       <image src='/images/icon3.png'></image>
       <text>服务类</text>
     </view>
     <view class='images'>
-      <image src='/images/icon4.png'></image>
+      <image src='/images/icon4.png' bindtap='all'></image>
       <text>所有类</text>
     </view>
   </view>
@@ -46,8 +46,8 @@
           <text> {{item.b_place}} {{item.b_stype}}</text>
           <text>{{item.btime_begin}} </text>
         </view>
-        <image src='/images/shoucang.png' wx:if="{{item.collect==1?false:true}}" catchtap='collect' data-jobid="{{item.bid}}"></image>
-        <image src='/images/shoucang1.jpg' wx:if="{{item.collect==1?true:false}}" catchtap='nocollect' data-jobid="{{item.bid}}"></image>
+        <image src='/images/shoucang.png' wx:if="{{item.collect_sign==1?false:true}}" catchtap='collect' data-jobid="{{item.bid}}"></image>
+        <image src='/images/shoucang1.jpg' wx:if="{{item.collect_sign==1?true:false}}" catchtap='nocollect' data-jobid="{{item.bid}}"></image>
       </view>
     </view>
   </block>

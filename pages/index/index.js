@@ -19,6 +19,8 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
+
+    //首页推荐
     page = 0;
     var place = wx.getStorageSync('location_place');
     console.log(wx.getStorageSync('sessionId'))
@@ -36,8 +38,30 @@ Page({
         success: function (obj) {
           console.log(obj.data.msg);
           content = obj.data.msg
-          that.setData({
-            content: content
+          //收藏展示
+          wx.request({
+            url: 'https://m.ctrltab.xyz/bid_info/show',
+            method: "GET",
+            data: {
+              classes: "collect",
+              ye: 1
+            },
+            header: {
+              "content-type": "application/json",
+              "Cookie": "sessionId=" + wx.getStorageSync('sessionId')
+            },
+            success: function (obj) {
+              for (var i in obj.data.ID) {
+                for (var j in content) {
+                  if (content[j].bid == obj.data.ID[i]) {
+                    content[j].collect_sign = 1
+                  }
+                }
+              }
+              that.setData({
+                content: content
+              })
+            }
           })
         }
       })
@@ -159,8 +183,30 @@ Page({
           data1.push(obj.data.msg[i])
         }
         content = data1
-        that.setData({
-          content: data1
+        //收藏展示
+        wx.request({
+          url: 'https://m.ctrltab.xyz/bid_info/show',
+          method: "GET",
+          data: {
+            classes: "collect",
+            ye: 1
+          },
+          header: {
+            "content-type": "application/json",
+            "Cookie": "sessionId=" + wx.getStorageSync('sessionId')
+          },
+          success: function (obj) {
+            for (var i in obj.data.ID) {
+              for (var j in content) {
+                if (content[j].bid == obj.data.ID[i]) {
+                  content[j].collect_sign = 1
+                }
+              }
+            }
+            that.setData({
+              content: content
+            })
+          }
         })
       }
     })
@@ -168,6 +214,23 @@ Page({
   skip: function (e) {
     console.log(e)
     var jobid = e.currentTarget.dataset.jobid;
+    //历史记录存储
+    wx.request({
+      url: 'https://m.ctrltab.xyz/bid_info/history',
+      method: "GET",
+      data: {
+        id: jobid,
+        status:1
+      },
+      header: {
+        "content-type": "application/json",
+        "Cookie": "sessionId=" + wx.getStorageSync('sessionId')
+      },
+      success: function (obj) {
+        console.log(obj.data);
+      }
+    })
+
     wx.navigateTo({
       url: '../detail/detail?id=' + jobid,
     })
@@ -190,7 +253,7 @@ Page({
         console.log(obj)
         for (var i in content) {
           if (content[i].bid == jobid) {
-            content[i].collect = 1
+            content[i].collect_sign = 1
           }
         }
         that.setData({
@@ -217,13 +280,33 @@ Page({
         console.log(obj)
         for (var i in content) {
           if (content[i].bid == jobid) {
-            content[i].collect = 0
+            content[i].collect_sign = 0
           }
         }
         that.setData({
           content: content
         })
       }
+    })
+  },
+  type1:function(){
+    wx.navigateTo({
+      url: '../search/search?type=' + 2,
+    })
+  },
+  type2: function () {
+    wx.navigateTo({
+      url: '../search/search?type=' + 1,
+    })
+  },
+  type3: function () {
+    wx.navigateTo({
+      url: '../search/search?type=' + 3,
+    })
+  },
+  all:function(){
+    wx.navigateTo({
+      url: '../search/search?id= ',
     })
   }
 })
