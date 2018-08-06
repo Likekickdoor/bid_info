@@ -27,12 +27,11 @@ $app->get('/agent_company_rank','\SearchController:agent_company_rank');//代理
 $app->get('/searchbid_views_rank','\SearchController:searchbid_views_rank');//信息热度排名
 $app->post('/recommend','\SearchController:recommend');//推荐信息
 $app->get('/search_detail','\SearchController:search_detail');//详情信息
-$app->post('/isolduser','\UserController:isOldUser');//验证是否是新人
 
 $app->get('/fil',"\FiltrateController:fil");//用户进行大类别数据筛选
-$app->get('/collect',"\FiltrateController:collect");//用户收藏控制
-$app->get('/history','\FiltrateController:history');//用户历史纪录控制
-$app->get('/show','\FiltrateController:show');//用户的收藏与历史记录查询
+$app->get('/collect',"FiltrateController:collect");//用户收藏控制
+$app->get('/history','FiltrateController:history');//用户历史纪录控制
+$app->get('/show','FiltrateController:show');//用户的收藏与历史记录查询
 
 $app->run();//启动监听函数
 ?>

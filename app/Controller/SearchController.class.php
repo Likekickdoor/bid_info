@@ -35,7 +35,7 @@ class SearchController {
 			$response->getBody()->write(json_encode(
 				[
 				 	'statusCode' => 'ok',
-		            'msg' => $res
+		            'msg' => self::clear_time($res)
 				]
 			));
 			return $response;
@@ -98,6 +98,7 @@ class SearchController {
 	   	$stmt=$this->pdo->prepare($keywordsql);
 		$stmt->execute();
 		$keywordArr=$stmt->fetch(PDO::FETCH_ASSOC);//查询出来为空则false,有则为数组
+	   	$keywordArr=self::Killempytkey($keywordArr);//清空为NULL的关键词	   	
 	   	}else{
 	   	$keywordArr=[];
 	   	}
@@ -106,7 +107,8 @@ class SearchController {
 			$tail=" ORDER BY `btime_begin` DESC LIMIT {$startpage},{$lit}";
 			$sql = "SELECT `bid`,`b_title`,`b_stype`,`agent_comp`,`b_place`,`btime_begin` FROM `bidinfo` WHERE ( `b_title` LIKE '%{$place}%' OR `b_stype` LIKE '%{$place}%' OR `agent_comp` LIKE '%{$place}%' OR `b_place` LIKE '%{$place}%' ) AND `status`=1".$tail;
 		}else{
-			$keywordArr=self::Killempytkey($keywordArr);
+			//$keywordArr=self::Killempytkey($keywordArr);
+			//var_dump($keywordArr);exit();
 			$sql=self::KeywordSql($keywordArr,$startpage*$lit,$lit);
 		}
 		$res=self::SearchAllInfo($this->pdo,$sql);
@@ -116,7 +118,7 @@ class SearchController {
 		$response->getBody()->write(json_encode(
 			[
 				'statusCode' => 'ok',
-		        'msg' => $res
+		        'msg' => self::clear_time($res)
 			]
 		));
 		return $response;
@@ -132,7 +134,7 @@ class SearchController {
 	  }
    }
    /**
-   *招标信息浏览量add
+   *招标信息浏览量
    */
    public function searchbid_views_rank(Request $request, Response $response){
 	    $sql="SELECT *FROM `bidinfo_views_rank` LIMIT 0,10";
@@ -173,10 +175,10 @@ class SearchController {
 		   $response->getBody()->write(json_encode(
 			[
 				'statusCode' => 'ok',
-			    'msg' => $res
+			    'msg' => self::clear_time2($res)
 			]
 			));
-		return $response;
+			return $response;
 	   }catch(Exception $e){
 			$response = $response->withStatus($e->getCode())->withHeader('Content-type', 'application/json');
 			$response->getBody()->write(json_encode(
@@ -197,6 +199,7 @@ class SearchController {
      $arr=preg_split($pattern, $inputword);
      return $arr;
    }
+   //模糊查询的SQL语句
    private function KeywordSql($keyword,$start,$lit){
    	  $tail=" ORDER BY `btime_begin` DESC LIMIT {$start},{$lit}";
    	  if(is_array($keyword)){
@@ -218,6 +221,7 @@ class SearchController {
 			return $sql1.$tail;
    	  }
    }
+   //清空所有的空值
    private function Killempytkey($arrs){
 	   	$arrs2=[];
 	   	foreach ($arrs as $arr) {
@@ -235,20 +239,35 @@ class SearchController {
 		$res =$stmt->fetchAll($pdo::FETCH_ASSOC);
 		return $res;
    }
+   //添加搜藏标志
    private function AddCollectSign($arrs){
    		for ($i=0; $i < count($arrs); $i++) { 
    			$arrs[$i]['collect_sign']=0;
    		}
    		return $arrs;
    }
-   /**
-   *招标信息浏览量add
-   */
+   //招标信息浏览量add
    private function add_bidinfo_views($pdo,$bid){
 	   	$sql = "UPDATE `notice` SET views=views+1 WHERE `about_id`={$bid}";
 	   	$stmt=$pdo->prepare($sql);
 		$res=$stmt->execute();
 		return $res;
+   }
+   //修改时间格式只有日期，去掉时间,针对数组
+   private function clear_time($arrs){
+	   	$pattern='/(\s+)/i';
+	   	foreach ($arrs as $key => $arr) {
+	   		$arr=preg_split($pattern, $arr['btime_begin']);
+	   		$arrs[$key]['btime_begin'] = $arr[0];
+	   	}
+	   	return $arrs;
+   }
+   //修改时间格式只有日期，去掉时间,针对单字符串
+   private function clear_time2($str){
+	   	$pattern='/(\s+)/i';
+	   	$temp=preg_split($pattern, $str['btime_begin']);
+	   	$str['btime_begin']=$temp[0];
+	   	return $str;
    }
 
 }

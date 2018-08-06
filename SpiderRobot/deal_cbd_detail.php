@@ -4,7 +4,7 @@
 // set_time_limit(0);
 // require_once('./phpQuery/phpQuery.php');
 // require_once ('./collect.class.php');
-// $pdo = new PDO('mysql:host=localhost;dbname=bidinfo','root','',[PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8']);
+ $pdo = new PDO('mysql:host=localhost;dbname=bidinfo','root','Root123456',[PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8']);
 
 $Rows= $pdo->query("SELECT `bid`,`org_href` FROM `bidinfo` WHERE status=2 AND fromsite=2",PDO::FETCH_ASSOC);
 $one = new OpenUrlClass();

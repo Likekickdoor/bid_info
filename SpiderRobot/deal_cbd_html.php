@@ -61,10 +61,10 @@ foreach ($industries as $indCode => $industrie) {//各个小行业循环indCode�
   	}
   	// exit('<br/>一个行业循环完<br/>');	
 }
+	$pdo = null;
 	printf("\nAll industries had vivisted\n");
 	require_once('deal_cbd_detail.php');
-	printf("\nAll detail information collected\n");
-	$pdo = null;
+	printf("\nAll detail information collected\n");	
 }catch(Exception $e){
 	echo $e->getMessage();
 }

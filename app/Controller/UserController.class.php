@@ -63,7 +63,6 @@ class UserController {
 					    'msg'=>'login successful!New member'
 					    ]
 					));
-							//setcookie("sessionId",$uid,60);
 						return $response;
 					}else{//2.2是老用户,但是cookie已经过期了
 						$uid=$SqlRes['uid'];
@@ -75,10 +74,8 @@ class UserController {
 					    'msg'=>'login successful!Old member'
 					    ]
 						));
-							//setcookie("sessionId",$uid,60);
-							return $response;
-					}
-				
+						return $response;
+					}				
 				}
 		}catch(Exception $e){
 			$response = $response->withStatus($e->getCode())->withHeader('Content-type', 'application/json');
@@ -90,6 +87,34 @@ class UserController {
 			));
 			return $response;
 		}
+   }
+   /**
+   *判断是不是老用户
+   */
+   public function isOldUser (Request $request, Response $response){
+   		//1.解析微信的code，得到openid，并在数据库中查询是《新用户》还是《老用户》
+		$postDatas = $request->getParsedBody();//var_dump($postDatas);exit;
+		$code=@$postDatas['code'];//前端小程序传来的参数
+		$wx_rep=self::getUserSigne($code);//微信得到的用户openid、session_key等
+		$sql="SELECT `uid`,`username`,`face` FROM user WHERE `openid` = '{$wx_rep['openid']}' ";
+		$SqlRes=self::executeSql($this->pdo,$sql);//$res['uid']==1该微信号已经绑定业务不是新用户
+		$response = $response->withStatus(200)->withHeader('Content-type', 'application/json');
+		if(!$SqlRes['uid']){
+			$response->getBody()->write(json_encode(
+				[
+					'sessionId'=>null
+				]
+			));
+		}else{
+			$response->getBody()->write(json_encode(
+				[
+					'sessionId'=>$SqlRes['uid'],
+					'username'=>$SqlRes['username'],
+					'face'=>$SqlRes['face']
+				]
+			));
+		}
+		return $response;
    }
    /**
    *获取到基本信息
@@ -181,17 +206,11 @@ class UserController {
 		if(empty($dateArr['UserName'])||empty($dateArr['openid'])||empty($dateArr['face'])){
 			throw new Exception("Error!,lost some param", 400);
 		}
-		if(empty($dateArr['u_place'])){
-			$dateArr['u_place']='DEFAULT';
-		}
-		if(empty($dateArr['u_ind_type'])){
-			$dateArr['u_ind_type']='DEFAULT';
-		}
-		if(empty($dateArr['u_agent'])){
-			$dateArr['u_agent']='DEFAULT';
-		}
+		empty($dateArr['u_place'])?$dateArr['u_place']='DEFAULT':$dateArr['u_place']="'".$dateArr['u_place']."'";
+		empty($dateArr['u_ind_type'])?$dateArr['u_ind_type']='DEFAULT':$dateArr['u_ind_type']="'".$dateArr['u_ind_type']."'";
+		empty($dateArr['u_agent'])?$dateArr['u_agent']='DEFAULT':$dateArr['u_agent']="'".$dateArr['u_agent']."'";
 		$sql="INSERT INTO user (`username`,`openid`,`face`,`u_place`,`u_ind_type`,`u_agent`)
-	    VALUES ('{$dateArr['UserName']}','{$dateArr['openid']}','{$dateArr['face']}','{$dateArr['u_place']}','{$dateArr['u_ind_type']}','{$dateArr['u_agent']}')";
+	    VALUES ('{$dateArr['UserName']}','{$dateArr['openid']}','{$dateArr['face']}',{$dateArr['u_place']},{$dateArr['u_ind_type']},{$dateArr['u_agent']})";
 	    return $sql;
 	}
 	private function setUpdateValues($dateArr){
