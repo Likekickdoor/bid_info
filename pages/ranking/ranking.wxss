@@ -1,0 +1,609 @@
+.all{
+    width: 100%;
+    height: 667px;
+  }
+  .btn {
+  width: 100%;
+  height: 80rpx;
+  margin-top: 20rpx;
+}
+  .top{
+    width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .top text{
+    color: #004BAB;
+    font-size: 35rpx;
+  }
+  .title1{
+    float: left;
+    margin-left: 55rpx;
+    margin-top: 29rpx;
+  }
+  .title2{
+    float: left;
+    margin-left: 160rpx;
+    margin-top: 29rpx;
+  }
+  .title3{
+    float: left;
+    margin-left: 140rpx;
+    margin-top: 29rpx;
+  }
+  .tt1{
+    float: left;
+    margin-left: 55rpx;
+    margin-top: 29rpx;
+  }
+  .tt2{
+    float: left;
+    margin-left: 170rpx;
+    margin-top: 29rpx;
+  }
+   .tt3{
+    float: left;
+    margin-left: 180rpx;
+    margin-top: 29rpx;
+  }
+  .bg {
+  color: #166fb4;
+}
+  .content{
+    width: 100%;
+    height: 100%;
+  }
+  .k1{
+    width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .k1 image{
+    width: 60rpx;
+    height: 60rpx;
+    float: left;
+    margin-left: 48rpx;
+    margin-top: 19rpx
+  }
+  .k1 .name{
+    font-size: 32rpx;
+    float: left;
+    margin-left: 50rpx;
+    margin-top: 30rpx;
+  }
+  .k1 .shuju{
+    font-size: 32rpx;
+    float: right;
+     margin-right: 70rpx;
+    margin-top: 30rpx;
+  }
+  .k2{
+    width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .k2 image{
+    width: 60rpx;
+    height: 60rpx;
+    float: left;
+    margin-left: 48rpx;
+    margin-top: 19rpx
+  }
+  .k2 .name{
+     font-size: 32rpx;
+    float: left;
+    margin-left: 50rpx;
+    margin-top: 30rpx;
+  }
+  .k2 .shuju{
+    font-size: 32rpx;
+    float: right;
+     margin-right: 70rpx;
+    margin-top: 30rpx;
+  }
+  .k3{
+   width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .k3 image{
+    width: 60rpx;
+    height: 60rpx;
+    float: left;
+    margin-left: 48rpx;
+    margin-top: 19rpx
+  }
+  .k3 .name{
+    font-size: 32rpx;
+    float: left;
+    margin-left: 50rpx;
+    margin-top: 30rpx;
+  }
+  .k3 .shuju{
+   font-size: 32rpx;
+   float: right;
+     margin-right: 70rpx;
+    margin-top: 30rpx;
+  }
+  .k4{
+   width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .k4 .number{
+    font-size: 40rpx;
+    color: gray;
+    float: left;
+    margin-left: 60rpx;
+    margin-top: 27rpx
+  }
+  .k4 .name{
+    font-size: 32rpx;
+    float: left;
+    margin-left: 76rpx;
+    margin-top: 30rpx;
+  }
+  .k4 .shuju{
+    font-size: 32rpx;
+    float: right;
+     margin-right: 70rpx;
+    margin-top: 30rpx;
+  }
+  .k5{
+   width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .k5 .number{
+    font-size: 40rpx;
+    color: gray;
+    float: left;
+    margin-left: 60rpx;
+    margin-top: 27rpx
+  }
+  .k5 .name{
+    font-size: 32rpx;
+    float: left;
+    margin-left: 76rpx;
+    margin-top: 30rpx;
+  }
+  .k5 .shuju{
+    font-size: 32rpx;
+   float: right;
+     margin-right: 70rpx;
+    margin-top: 30rpx;
+  }
+  .k6{
+   width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .k6 .number{
+    font-size: 40rpx;
+    color: gray;
+    float: left;
+    margin-left: 60rpx;
+    margin-top: 27rpx
+  }
+  .k6 .name{
+    font-size: 32rpx;
+    float: left;
+    margin-left: 76rpx;
+    margin-top: 30rpx;
+  }
+  .k6 .shuju{
+    font-size: 32rpx;
+   float: right;
+     margin-right: 70rpx;
+    margin-top: 30rpx;
+  }
+  .k7{
+   width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .k7 .number{
+    font-size: 40rpx;
+    color: gray;
+    float: left;
+    margin-left: 60rpx;
+    margin-top: 27rpx
+  }
+  .k7 .name{
+    font-size: 32rpx;
+    float: left;
+    margin-left: 76rpx;
+    margin-top: 30rpx;
+  }
+  .k7 .shuju{
+    font-size: 32rpx;
+    float: right;
+     margin-right: 70rpx;
+    margin-top: 30rpx;
+  }
+  .k8{
+   width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .k8 .number{
+     font-size: 40rpx;
+    color: gray;
+    float: left;
+    margin-left: 60rpx;
+    margin-top: 27rpx
+  }
+  .k8 .name{
+    font-size: 32rpx;
+    float: left;
+    margin-left: 76rpx;
+    margin-top: 30rpx;
+  }
+  .k8 .shuju{
+    font-size: 32rpx;
+    float: right;
+     margin-right: 70rpx;
+    margin-top: 30rpx;
+  }
+  .k9{
+   width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .k9 .number{
+    font-size: 40rpx;
+    color: gray;
+    float: left;
+    margin-left: 60rpx;
+    margin-top: 27rpx
+  }
+  .k9 .name{
+    font-size: 32rpx;
+    float: left;
+    margin-left: 76rpx;
+    margin-top: 30rpx;
+  }
+  .k9 .shuju{
+    font-size: 32rpx;
+    float: right;
+     margin-right: 70rpx;
+    margin-top: 30rpx;
+  }
+  .k10{
+   width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .k10 .number{
+    font-size: 40rpx;
+    color: gray;
+    float: left;
+    margin-left: 60rpx;
+    margin-top: 27rpx
+  }
+  .k10 .name{
+    font-size: 32rpx;
+    float: left;
+    margin-left: 55rpx;
+    margin-top: 30rpx;
+  }
+  .k10 .shuju{
+    font-size: 32rpx;
+    float: right;
+     margin-right: 70rpx;
+    margin-top: 30rpx;
+  }
+  .x1{
+    width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .x1 image{
+    width: 60rpx;
+    height: 60rpx;
+    float: left;
+    margin-left: 48rpx;
+    margin-top: 19rpx
+  }
+  .x1 .name{
+    width: 450rpx;
+    
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size: 32rpx;
+    float: left;
+    margin-left: 45rpx;
+    margin-top: 30rpx;
+  }
+  .x1 .shuju{
+    font-size: 32rpx;
+    float: right;
+     margin-right: 80rpx;
+    margin-top: 30rpx;
+  }
+  .x2{
+    width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .x2 image{
+    width: 60rpx;
+    height: 60rpx;
+    float: left;
+    margin-left: 48rpx;
+    margin-top: 19rpx
+  }
+  .x2 .name{
+    width: 450rpx;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size: 32rpx;
+    float: left;
+    margin-left: 45rpx;
+    margin-top: 30rpx;
+  }
+  .x2 .shuju{
+    font-size: 32rpx;
+    float: right;
+    margin-right: 80rpx;
+    margin-top: 30rpx;
+  }
+  .x3{
+   width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .x3 image{
+    width: 60rpx;
+    height: 60rpx;
+    float: left;
+    margin-left: 48rpx;
+    margin-top: 19rpx
+  }
+  .x3 .name{
+     width: 450rpx;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size: 32rpx;
+    float: left;
+    margin-left: 45rpx;
+    margin-top: 30rpx;
+  }
+  .x3 .shuju{
+   font-size: 32rpx;
+     float: right;
+     margin-right: 80rpx;
+    margin-top: 30rpx;
+  }
+  .x4{
+   width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .x4 .number{
+    font-size: 40rpx;
+    color: gray;
+    float: left;
+    margin-left: 60rpx;
+    margin-top: 27rpx
+  }
+  .x4 .name{
+     width: 450rpx;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size: 32rpx;
+    float: left;
+    margin-left: 70rpx;
+    margin-top: 30rpx;
+  }
+  .x4 .shuju{
+    font-size: 32rpx;
+    float: right;
+   margin-right: 80rpx;
+    margin-top: 30rpx;
+  }
+  .x5{
+   width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .x5 .number{
+    font-size: 40rpx;
+    color: gray;
+    float: left;
+    margin-left: 60rpx;
+    margin-top: 27rpx
+  }
+  .x5 .name{
+     width: 450rpx;
+
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size: 32rpx;
+    float: left;
+    margin-left: 70rpx;
+    margin-top: 30rpx;
+  }
+  .x5 .shuju{
+    font-size: 32rpx;
+     float: right;
+     margin-right: 80rpx;
+    margin-top: 30rpx;
+  }
+  .x6{
+   width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .x6 .number{
+    font-size: 40rpx;
+    color: gray;
+    float: left;
+    margin-left: 60rpx;
+    margin-top: 27rpx
+  }
+  .x6 .name{
+     width: 450rpx;
+
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size: 32rpx;
+    float: left;
+    margin-left: 70rpx;
+    margin-top: 30rpx;
+  }
+  .x6 .shuju{
+    font-size: 32rpx;
+     float: right;
+    margin-right: 80rpx;
+    margin-top: 30rpx;
+  }
+  .x7{
+   width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .x7 .number{
+    font-size: 40rpx;
+    color: gray;
+    float: left;
+    margin-left: 60rpx;
+    margin-top: 27rpx
+  }
+  .x7 .name{
+     width: 450rpx;
+
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size: 32rpx;
+    float: left;
+    margin-left: 70rpx;
+    margin-top: 30rpx;
+  }
+  .x7 .shuju{
+    font-size: 32rpx;
+     float: right;
+     margin-right: 80rpx;
+    margin-top: 30rpx;
+  }
+  .x8{
+   width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .x8 .number{
+    font-size: 40rpx;
+    color: gray;
+    float: left;
+    margin-left: 60rpx;
+    margin-top: 27rpx
+  }
+  .x8 .name{
+   width: 450rpx;
+
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size: 32rpx;
+    float: left;
+    margin-left: 70rpx;
+    margin-top: 30rpx;
+  }
+  .x8 .shuju{
+    font-size: 32rpx;
+   float: right;
+     margin-right: 80rpx;
+    margin-top: 30rpx;
+  }
+  .x9{
+   width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .x9 .number{
+    font-size: 40rpx;
+    color: gray;
+    float: left;
+    margin-left: 60rpx;
+    margin-top: 27rpx
+  }
+  .x9 .name{
+    width: 450rpx;
+
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size: 32rpx;
+    float: left;
+    margin-left: 70rpx;
+    margin-top: 30rpx;
+  }
+  .x9 .shuju{
+    font-size: 32rpx;
+     float: right;
+    margin-right: 80rpx;
+    margin-top: 30rpx;
+  }
+  .x10{
+   width: 100%;
+    height: 100rpx;
+    border-bottom: 1px solid gainsboro;
+  }
+  .x10 .number{
+    font-size: 40rpx;
+    color: gray;
+    float: left;
+    margin-left: 60rpx;
+    margin-top: 27rpx
+  }
+  .x10 .name{
+     width: 450rpx;
+
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size: 32rpx;
+    float: left;
+    margin-left: 70rpx;
+    margin-top: 30rpx;
+  }
+  .x10 .shuju{
+    font-size: 32rpx;
+     float: right;
+     margin-right: 80rpx;
+    margin-top: 30rpx;
+  }
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+.one {
+  width: 40%;
+  height: 80rpx;
+  float: left;
+  margin-left: 40rpx;
+  line-height: 80rpx;
+  background: white;
+  border: 1px solid #166fb4;
+}
+
+
+.two {
+  width: 40%;
+  height: 80rpx;
+  float: right;
+  margin-right:40rpx;
+  line-height: 80rpx;
+  background: white;
+  border: 1px solid #166fb4;
+}

@@ -1,0 +1,84 @@
+/* pages/welcome/welcome.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.container .top{
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 30rpx;
+  border-bottom: 1px #888 solid;
+  font-size: 38rpx;
+}
+.container .note{
+  background: #FCFBC0;
+  font-size: 26rpx;
+  color: #EB5605;
+  padding:10rpx 30rpx;
+}
+.container .mainBox{
+  margin-top: 65rpx;
+  padding-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+.container .mainBox .key{
+  display: flex;
+  flex-direction: row;
+  height: 150rpx;
+  line-height: 150rpx;
+}
+.container .mainBox .key text{
+  width: 54rpx;
+}
+.container .mainBox .key input{
+  width: 590rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 1rpx #CDCEC8 solid;
+  margin-top: 36rpx;
+  font-size: 32rpx;
+  padding-left: 20rpx;
+  border-radius:3px;
+}
+.container .btn{
+  margin-top: 80rpx;
+  display: flex;
+  flex-direction: row;
+  padding-left: 30rpx;
+}
+.container .btn .finish,.skip{
+  width: 220rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: rgba(0,75,171, 0.8);
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 74rpx;
+}
+.skip{
+  margin-left: 70rpx;
+  background: #B9B3B6;  
+}
+.save{
+  width: 100%;
+  height: 100rpx;
+  float: left;
+  margin-top: 120rpx;
+  margin-left: -550rpx;
+  color: green;
+}
+.fail{
+  width: 100%;
+  height: 100rpx;
+  float: left;
+  margin-top: 176rpx;
+  margin-left: -500rpx;
+  color: red;
+}

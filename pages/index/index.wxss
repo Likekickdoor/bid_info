@@ -1,1 +1,177 @@
 /* pages/index/index.wxss */
+
+page {
+  width: 100%;
+  height: 100%;
+  font-size: 30rpx;
+  background: #ebe9ea;
+
+}
+
+.top {
+  height: 430rpx;
+  color: #fff;
+  background: #fff;
+}
+
+.top image {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  height: 315rpx;
+  width: 100%;
+}
+
+.top .user {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  top: 50rpx;
+  left: 480rpx;
+  z-index: 2;
+}
+
+.top .user .username {
+  position: relative;
+  width: 20%;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-right: 2%;
+  text-align: right;
+}
+.top .user .touxiang{
+  position: relative;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  overflow:hidden;
+}
+.top .user .touxiang image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.top .search {
+  position: absolute;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  top: 150rpx;
+  left: 0;
+  z-index: 2;
+}
+
+.top .search .index {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 27%;
+  height: 100%;  
+  left: 20rpx;
+}
+
+.top .search .index image {
+  position: relative;
+  width: 50rpx;
+  height: 64rpx;
+  top:6rpx;
+}
+
+.top .search .index text {
+  position: relative;
+  left: 8rpx;
+  top: 24rpx;
+  font-size: 36rpx;
+}
+
+.top .search .input {
+  position: relative;
+    height: 100%;  
+}
+
+.top .search .input input {
+  position: relative;
+  top: 11rpx;
+  background: #fff;
+  width: 484rpx;
+  height:60rpx;
+  border-radius: 5px;
+  padding-left: 20rpx;
+  color: #000;
+  font-size: 28rpx;
+  letter-spacing: 2rpx;
+}
+
+.top .type {
+  position: absolute;
+  top: 290rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.top .type .images {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  text-align: center;
+}
+
+.top .type image {
+  position: relative;
+  margin-left: 34%;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.top .type text {
+  position: relative;
+  margin-top: 15rpx;
+  color: #888;
+}
+.content{
+  margin-top: 30rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.content .head{
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 20rpx;
+  font-size: 38rpx;
+  border-bottom: 1px #eee solid;
+}
+.content .box{
+  padding:30rpx 20rpx;
+  font-size: 30rpx;
+  color: #888;
+  border-bottom: 1px #eee solid;
+}
+.content .box .title{
+  color: #000;
+  font-size: 34rpx;  
+  line-height: 60rpx;
+}
+.content .box .text{
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+}
+.content .box .text text{
+  width:84%;
+}
+.content .box .text .text1{
+  display: flex;
+  flex-direction: column;
+  width:84%;
+  line-height: 46rpx;
+}
+.content .box .text image{
+  width: 54rpx;
+  height: 54rpx;
+}

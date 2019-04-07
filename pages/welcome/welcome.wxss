@@ -1,0 +1,64 @@
+/* pages/welcome/welcome.wxss */
+/* pages/welcome/welcome.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+  color: #888;
+}
+.top{
+  width: 90%;
+  height: 35%;
+  margin: 0 auto;
+  padding-top:25%;
+  border-bottom: 1px solid #eee;
+}
+.top .logo{
+  height: 186rpx;
+  text-align: center;
+}
+.top .logo image{
+  width: 150rpx;
+  height: 150rpx;
+}
+.top .intro {
+ display: flex;
+ flex-direction: column;
+ text-align: center;
+}
+.top .intro .intro_title{
+  font-size: 42rpx;
+  margin-bottom: 20rpx;
+  color: #000;
+}
+.bottom{
+  padding-top:5%;
+  width: 90%;
+  margin: 0 auto;
+}
+.bottom .detail{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 13%;
+}
+.bottom .detail text{
+  height: 50rpx;
+}
+.bottom .button{
+  display: flex;
+  flex-direction: row;
+}
+.bottom .button button{
+  width: 45%;
+  border-radius: 1px;
+}
+.bottom .button .btn_home{
+  background: #B9B3B6;
+  color: #514A4E;
+}
+.bottom .button .btn_get{
+  background: #004bab;
+  color: #fff;
+}

@@ -1,0 +1,50 @@
+<!--pages/search/search.wxml-->
+<view class='search'>
+  <input placeholder-class="phcolor" placeholder="多关键字用空格、逗号等字符分隔" bindinput="search" bindconfirm="searchSubmit" value="{{value}}"></input>
+</view>
+<view class="nav">
+  <view class="nav-son " bindtap="listqy" data-nav="1">
+    <view class="content">
+      <picker bindchange="bindPickerChange" value="{{index1}}" range="{{array}}">
+        <view class="picker">
+          类型
+        </view>
+      </picker>
+    </view>
+    <view class="icon"></view>
+  </view>
+  <view class="nav-son" bindtap="list" data-nav="2">
+    <view class="content">
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="picker">
+          地点
+        </view>
+      </picker>
+    </view>
+    <view class="icon"></view>
+  </view>
+  <view class="nav-son " bindtap="listpx" data-nav="3">
+    <view class="content">
+      <picker bindchange="bindPickerChange1" value="{{index2}}" range="{{array1}}">
+        <view class="picker">
+          排序
+        </view>
+      </picker>
+    </view>
+    <view class="icon"></view>
+  </view>
+</view>
+<view class='content1'>
+  <block wx:for="{{content}}" wx:for-item="item">
+    <view class='box'  bindtap='skip' data-jobid="{{item.bid}}">
+      <text class='title'>{{item.b_title}}</text>
+      <view class='text'>
+      <view class='text1'>
+      <text> {{item.b_place}} {{item.b_stype}}</text>
+        <text>{{item.btime_begin}} </text></view>
+        <image src='/images/shoucang.png' wx:if="{{item.collect_sign==1?false:true}}" catchtap='collect' data-jobid="{{item.bid}}"></image>
+        <image src='/images/shoucang1.jpg' wx:if="{{item.collect_sign==1?true:false}}" catchtap='nocollect' data-jobid="{{item.bid}}"></image>
+      </view>
+    </view>
+  </block>
+</view>

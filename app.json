@@ -1,8 +1,43 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",    
+    "pages/keyy/keyy",
+    "pages/welcome/welcome",    
+    "pages/detail/detail",    
+    "pages/search/search",
+    "pages/key/key",
+    "pages/ranking/ranking",
+    "pages/personal/personal",
+    "pages/history/history",
+    "pages/collection/collection"
+    
+   
   ],
   "window": {
-    "navigationBarBackgroundColor": "#405f80"
+    "navigationBarBackgroundColor": "#004bab",
+    "navigationBarTitleText": "招标信息站"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home1.png"
+      },
+      {
+        "pagePath": "pages/ranking/ranking",
+        "text": "排名",
+        "iconPath": "images/rank.png",
+        "selectedIconPath": "images/rank1.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心",
+        "iconPath": "images/person.png",
+        "selectedIconPath": "images/person1.png"
+      }
+    ],
+    "selectedColor": "#004bab"
   }
 }
