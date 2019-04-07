@@ -1,0 +1,26 @@
+<!--pages/welcome/welcome.wxml-->
+<view class='container'>
+  <view class='top'>填写关键词</view>
+  <view class='note'>填写关键词，开启智能推荐模式。每次进入程序都会为你推荐，可在个人中心修改。</view>
+  <view class='mainBox'>
+    <view class='key'>
+      <text>1</text>
+      <input placeholder='请输入关键词1, 例如：地点' bindinput='key1' value='{{value1}}'></input>
+    </view>
+    <view class='key'>
+      <text>2</text>
+      <input placeholder='请输入关键词2，例如：类型' bindinput='key2' value='{{value2}}'></input>
+    </view>
+    <view class='key'>
+      <text>3</text>
+      <input placeholder='请输入关键词3，例如：代理公司' bindinput='key3' value='{{value3}}'></input>
+    </view>
+  </view>
+  <view class='btn'>
+  <view class='skip' bindtap='reset'>重置</view>
+  <view class='finish' bindtap='finish'>完成</view>
+   
+  <view class="save" wx:if="{{save}}">保存成功！</view>
+  <view class="fail" wx:if="{{fail}}">保存失败，请您重试。</view>
+  </view>
+</view>

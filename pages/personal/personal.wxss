@@ -1,0 +1,131 @@
+page {
+  width: 100%;
+  height: 100%;
+  background-color: #F0F0F0;
+}
+.top{
+  width:100%;
+  height: 230px;
+
+  float: left;
+
+}
+.top image{
+  width: 100%;
+  height: 120px;  
+  z-index: -1;
+}
+
+.box1{
+  width: 600rpx;
+  height:300rpx;
+
+  border-radius: 27rpx;
+  margin-left: 60rpx;
+  margin-top: -160rpx;
+  z-index: 0;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 0 15px white; 
+  padding:10px ;
+}
+.touxiang{
+  width: 150rpx;
+  height: 150rpx;
+  float: left;
+  margin-left: 140rpx;
+  margin-top:-210rpx;
+  border-radius: 90rpx;
+  position: relative;
+  z-index: 2;
+ 
+   box-shadow: 0 0 7px white; 
+}
+.touxiang image{
+  width: 100%;
+  height: 100%;
+  
+}
+.name{
+  font-size: 35rpx;
+  float: left;
+  margin-top: 20rpx;
+  margin-left: 230rpx;
+}
+.box2{
+  width: 500rpx;
+  height: 100rpx;
+  margin: 0 auto;
+  margin-top: 160rpx;
+  background-color: #D9FFFC
+}
+.box2 image{
+  width: 50rpx;
+  height: 45rpx;
+  float: left;
+  margin-top: 30rpx;
+  margin-left: 150rpx;
+}
+.box2 text{
+  font-size: 30rpx;
+  float: left;
+  margin-left: 10rpx;
+  margin-top: 39rpx;
+}
+.common{
+  width: 100%;
+  height: 100%;
+
+}
+.common .title{
+  font-size: 35rpx;
+  float: left;
+  margin-left: 70rpx;
+}
+.yuan1{
+  width: 156rpx;
+  height: 156rpx;
+  float: left;
+  margin-top: 90rpx;
+ margin-left: -80rpx;
+  border-radius: 90rpx;
+  background-color: white;
+}
+.yuan1 image{
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: 37rpx;
+  margin-top: 36rpx;
+}
+.cc{
+   font-size: 35rpx;
+  float: left;
+  margin-top: 260rpx;
+  margin-left: -150rpx;
+}
+.hh{
+  font-size: 35rpx;
+  float: left;
+  margin-top: 20rpx;
+  margin-left: 220rpx;
+}
+.yuan2{
+ width: 156rpx;
+  height: 156rpx;
+  
+  float: right;
+  margin-right: 120rpx;
+   margin-top: 90rpx;
+  border-radius: 90rpx;
+  background-color: white;
+}
+.yuan2 image{
+  width: 80rpx;
+  height: 80rpx;
+   margin-left: 40rpx;
+  margin-top: 36rpx;
+}
+.yuan2 text{
+  font-size: 30rpx;
+  
+}

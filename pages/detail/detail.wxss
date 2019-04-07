@@ -1,0 +1,82 @@
+/* pages/detail/detail.wxss */
+.top{
+  display: flex;
+  flex-direction: column;
+}
+.top .title{
+  line-height: 72rpx;
+  font-size: 40rpx;
+  text-align: center;
+  padding:30rpx;
+}
+.top .text{
+  display: flex;
+  flex-direction: row;
+  font-size: 30rpx;
+  padding-left: 10%;
+  color: #888;
+}
+.top .text .time{
+  width: 45%;
+  text-align: center;
+}
+.top .text .touch{
+  width: 45%;
+  text-align: center;
+}
+.anniu{
+  width: 100%;
+  height: 132rpx;
+  position: fixed;
+  top:1070rpx;
+  background: #fff;
+  border-top: 1px solid rgba(136, 136, 136, 0.603);
+  display: flex;
+  flex-direction: row;  
+}
+.anniu button{
+  width: 100%;
+  background: #fff;
+  padding: 0;
+  font-size: 26rpx;
+  display: flex;
+  flex-direction: column;
+}
+.anniu image{
+  margin-left: 162rpx;
+  margin-bottom: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.anniu view{
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 20rpx;
+  font-size: 26rpx;
+}
+.anniu .share1{
+  border-right: 1px rgba(136, 136, 136, 0.603) solid;
+}
+#shareBtn {
+  padding: 0;
+  margin: 0;
+  line-height: 50rpx;
+  background-color: #fff;
+  color: #999;
+  text-align: right;
+}
+
+#shareBtn::after {
+  border: none !important;
+}
+.infor{
+  margin-bottom: 200rpx;
+  padding-left: 30rpx;
+  font-size: 36rpx;
+}
+.template{
+  padding: 30rpx;
+  border-bottom: 1px #eee solid;
+}
